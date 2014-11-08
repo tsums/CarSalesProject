@@ -15,25 +15,31 @@
 <form class="form-horizontal">
     <div ng-hide="customer.selected">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="firstName">First Name</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="lastName">Last Name</label>
             </div>
-            <div class="col-sm-4">
-                <label for="email">Email</label>
+            <div class="col-sm-3">
+                <label for="dob">Date of Birth</label>
+            </div>
+            <div class="col-sm-3">
+                <label for="phone">Phone Number</label>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <input id="firstName" class="form-control" ng-model="customer.create.firstName"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <input id="lastName" class="form-control" ng-model="customer.create.lastName"/>
             </div>
-            <div class="col-sm-4">
-                <input id="email" class="form-control" ng-model="customer.create.email"/>
+            <div class="col-sm-3">
+                <input type="date" id="dob" class="form-control" ng-model="customer.create.dob"/>
+            </div>
+            <div class="col-sm-3">
+                <input type="tel" id="phone" class="form-control" ng-model="customer.create.phone"/>
             </div>
         </div>
         <div class="row">
@@ -56,46 +62,58 @@
             <div class="col-sm-4">
                 <label for="city">City</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <label for="state">State</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <label for="zipCode">Zip Code</label>
+            </div>
+            <div class="col-sm-4">
+                <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <input id="city" class="form-control" ng-model="customer.create.city"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <input id="state"  class="form-control" ng-model="customer.create.state"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <input id="zipCode" class="form-control" ng-model="customer.create.zipCode"/>
+            </div>
+            <div class="col-sm-4">
+                <input type="email" id="email" class="form-control" ng-model="customer.create.email"/>
             </div>
         </div>
     </div>
     <div ng-show="customer.selected">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="autoFillFirstName">First Name</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <label for="autoFillLastName">Last Name</label>
             </div>
-            <div class="col-sm-4">
-                <label for="autoFillEmail">Email</label>
+            <div class="col-sm-3">
+                <label for="autoFillDob">Date of Birth</label>
+            </div>
+            <div class="col-sm-3">
+                <label for="autoFillPhone">Phone Number</label>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <input disabled id="autoFillFirstName" class="form-control" ng-model="customer.selected.firstName"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <input disabled id="autoFillLastName" class="form-control" ng-model="customer.selected.lastName"/>
             </div>
-            <div class="col-sm-4">
-                <input disabled id="autoFillEmail" class="form-control" ng-model="customer.selected.email"/>
+            <div class="col-sm-3">
+                <input type="date" disabled id="autoFillDob" class="form-control" ng-model="customer.selected.dob"/>
+            </div>
+            <div class="col-sm-3">
+                <input type="tel" disabled id="autoFillPhone" class="form-control" ng-model="customer.selected.phone"/>
             </div>
         </div>
         <div class="row">
@@ -118,28 +136,34 @@
             <div class="col-sm-4">
                 <label for="autoFillCity">City</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <label for="autoFillState">State</label>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <label for="autoFillZipCode">Zip Code</label>
+            </div>
+            <div class="col-sm-4">
+                <label for="autoFillEmail">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
                 <input disabled id="autoFillCity" class="form-control" ng-model="customer.selected.city"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <input disabled id="autoFillState"  class="form-control" ng-model="customer.selected.state"/>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <input disabled id="autoFillZipCode" class="form-control" ng-model="customer.selected.zipCode"/>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-2 col-sm-offset-10">
-            <button class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
+            <div class="col-sm-4">
+                <input type="email" disabled id="autoFillEmail" class="form-control" ng-model="customer.selected.email"/>
+            </div>
         </div>
     </div>
 </form>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-10">
+        <button class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
+    </div>
+</div>
