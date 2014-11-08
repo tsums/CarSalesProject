@@ -21,10 +21,6 @@ angular.module('SalesCtrl', []).controller('salesController',['$sce','$scope',fu
         return $sce.trustAsHtml(value);
     };
 
-    $scope.getFullName = function(firstName, lastName){
-        return firstName+' '+lastName;
-    };
-
     $scope.nope = function(){
         $scope.customer.selected=undefined;
     };
