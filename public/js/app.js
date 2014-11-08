@@ -1,1 +1,1 @@
-angular.module('carSailsApp',[]);
+angular.module('carSailsApp',['ngRoute','appRoutes','MainCtrl','HomeCtrl','SalesCtrl']);
