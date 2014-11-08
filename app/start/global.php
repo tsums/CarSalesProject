@@ -79,3 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+App::missing(function($exception)
+{
+    return View::make('not-found')->withMessage($exception->getMessage());
+});

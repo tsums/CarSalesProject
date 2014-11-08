@@ -20,7 +20,6 @@ Route::get('/', function()
 
 Route::group(['prefix' => 'api'], function() {
 
-    Route::get('/customers', function () {
-        return Response::json(Customer::all());
-    });
+    Route::resource('customers', 'CustomerController');
+
 });
