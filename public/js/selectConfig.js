@@ -12,7 +12,7 @@ angular.module('selectConfig',[]).config(['uiSelectConfig', function(uiSelectCon
                 out: []
             };
             angular.forEach(customers, function(value){
-                if((value.firstName.indexOf(this.searchString) > -1) || (value.lastName.indexOf(this.searchString) > -1) || ((value.firstName+' '+value.lastName).indexOf(this.searchString) > -1) || ((value.lastName+', '+value.firstName).indexOf(this.searchString) > -1)){
+                if((value.firstName.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || (value.lastName.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || ((value.firstName+' '+value.lastName).toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || ((value.lastName+', '+value.firstName).toLowerCase().indexOf(this.searchString.toLowerCase()) > -1)){
                     this.out.push(value);
                 }
             }, items);
