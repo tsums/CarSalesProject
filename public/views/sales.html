@@ -1,1 +1,12 @@
-{{helloMessage}}
+<div class="row">
+    <div class="col-sm-11">
+        <ui-select ng-model="customer.selected" theme="bootstrap">
+            <ui-select-match placeholder="Select or search for a customer...">{{$select.selected.lastName}}, {{$select.selected.firstName}}</ui-select-match>
+            <ui-select-choices repeat="item in customers | byCustomerName: $select.search">
+                <div ng-bind="item.lastName"></div>
+                <small ng-bind="item.firstName"></small>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
