@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Laravel and Angular Comment System</title>
+    <title>Jimmy Bob's Car-a-Palooza</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
@@ -24,7 +24,19 @@
 
 </head>
 <body ng-app="carSailsApp" ng-controller="mainController">
-    <div ng-view>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Jimmy Bob's Car-a-Palooza</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-class="{active: salesPage}"><a href="#sales">Sales</a></li>
+                <li ng-class="{active: servicePage}"><a href="#service">Service</a></li>
+                <li ng-class="{active: statsPage}"><a href="#stats">Statistics</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" ng-view>
     </div>
 </body>
 </html>
