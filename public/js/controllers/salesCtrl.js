@@ -23,6 +23,15 @@ angular.module('SalesCtrl', []).controller('salesController',['$sce','$scope',fu
 
     $scope.getFullName = function(firstName, lastName){
         return firstName+' '+lastName;
-    }
+    };
+
+    $scope.nope = function(){
+        $scope.customer.selected=undefined;
+    };
+
+    $scope.shouldISaveAndContinue = function(){
+        if($scope.customer.selected) return "";
+        else return "Save and ";
+    };
 
 }]);

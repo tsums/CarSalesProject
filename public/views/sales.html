@@ -8,5 +8,36 @@
             </ui-select-choices>
         </ui-select>
     </div>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-1">
+        <button class="btn btn-warning" ng-click="nope()">Clear</button>
+    </div>
+</div>
+<div ng-hide="customer.selected">
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <label for="firstName">First Name</label>
+            <input  id="firstName" ng-model="customer.create.firstName"/>
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="lastName">First Name</label>
+            <input  id="lastName" ng-model="customer.create.lastName"/>
+        </div>
+    </div>
+</div>
+<div ng-show="customer.selected">
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <label for="autoFillFirstName">First Name</label>
+            <input disabled id="autoFillFirstName" ng-model="customer.selected.firstName"/>
+        </div>
+        <div class="form-group col-sm-2">
+            <label for="autoFillLastName">First Name</label>
+            <input disabled id="autoFillLastName" ng-model="customer.selected.lastName"/>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-10">
+        <button class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
+    </div>
 </div>
