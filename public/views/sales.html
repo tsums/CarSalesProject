@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-sm-11">
         <ui-select ng-model="customer.selected" theme="bootstrap">
-            <ui-select-match placeholder="Select or search for a customer...">{{$select.selected.lastName}}, {{$select.selected.firstName}}</ui-select-match>
+            <ui-select-match placeholder="Select or search for a customer...">{{$select.selected.name_last}}, {{$select.selected.name_first}}</ui-select-match>
             <ui-select-choices repeat="item in customers | byCustomerName: $select.search">
-                <div>{{item.lastName}}, {{item.firstName}}</div>
-                <small>{{item.email}} - {{item.addressLine1}}, {{item.city}}, {{item.state}} {{item.zipCode}}</small>
+                <div>{{item.name_last}}, {{item.name_first}}</div>
+                <small>{{item.email}} - {{item.address_1}}, {{item.city}}, {{item.state}} {{item.zip}}</small>
             </ui-select-choices>
         </ui-select>
     </div>
@@ -16,13 +16,13 @@
     <div ng-hide="customer.selected">
         <div class="row">
             <div class="col-sm-3">
-                <label for="firstName">First Name</label>
+                <label for="name_first">First Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="lastName">Last Name</label>
+                <label for="name_last">Last Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="dob">Date of Birth</label>
+                <label for="birthDate">Date of Birth</label>
             </div>
             <div class="col-sm-3">
                 <label for="phone">Phone Number</label>
@@ -30,13 +30,13 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <input id="firstName" class="form-control" ng-model="customer.create.firstName"/>
+                <input id="name_first" class="form-control" ng-model="customer.create.name_first"/>
             </div>
             <div class="col-sm-3">
-                <input id="lastName" class="form-control" ng-model="customer.create.lastName"/>
+                <input id="name_last" class="form-control" ng-model="customer.create.name_last"/>
             </div>
             <div class="col-sm-3">
-                <input type="date" id="dob" class="form-control" ng-model="customer.create.dob"/>
+                <input type="date" id="birthDate" class="form-control" ng-model="customer.create.birthDate"/>
             </div>
             <div class="col-sm-3">
                 <input type="tel" id="phone" class="form-control" ng-model="customer.create.phone"/>
@@ -44,18 +44,18 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <label for="addressLine1">Address Line 1</label>
+                <label for="address_1">Address Line 1</label>
             </div>
             <div class="col-sm-6">
-                <label for="addressLine2">Address Line 2</label>
+                <label for="address_2">Address Line 2</label>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <input id="addressLine1" class="form-control" ng-model="customer.create.addressLine1"/>
+                <input id="address_1" class="form-control" ng-model="customer.create.address_1"/>
             </div>
             <div class="col-sm-6">
-                <input id="addressLine2" class="form-control" ng-model="customer.create.addressLine2"/>
+                <input id="address_2" class="form-control" ng-model="customer.create.address_2"/>
             </div>
         </div>
         <div class="row">
@@ -66,7 +66,7 @@
                 <label for="state">State</label>
             </div>
             <div class="col-sm-2">
-                <label for="zipCode">Zip Code</label>
+                <label for="zip">Zip Code</label>
             </div>
             <div class="col-sm-4">
                 <label for="email">Email</label>
@@ -80,7 +80,7 @@
                 <input id="state"  class="form-control" ng-model="customer.create.state"/>
             </div>
             <div class="col-sm-2">
-                <input id="zipCode" class="form-control" ng-model="customer.create.zipCode"/>
+                <input id="zip" class="form-control" ng-model="customer.create.zip"/>
             </div>
             <div class="col-sm-4">
                 <input type="email" id="email" class="form-control" ng-model="customer.create.email"/>
@@ -104,13 +104,13 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <input disabled id="autoFillFirstName" class="form-control" ng-model="customer.selected.firstName"/>
+                <input disabled id="autoFillFirstName" class="form-control" ng-model="customer.selected.name_first"/>
             </div>
             <div class="col-sm-3">
-                <input disabled id="autoFillLastName" class="form-control" ng-model="customer.selected.lastName"/>
+                <input disabled id="autoFillLastName" class="form-control" ng-model="customer.selected.name_last"/>
             </div>
             <div class="col-sm-3">
-                <input type="date" disabled id="autoFillDob" class="form-control" ng-model="customer.selected.dob"/>
+                <input type="date" disabled id="autoFillDob" class="form-control" ng-model="customer.selected.birthDate"/>
             </div>
             <div class="col-sm-3">
                 <input type="tel" disabled id="autoFillPhone" class="form-control" ng-model="customer.selected.phone"/>
@@ -126,10 +126,10 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <input disabled id="autoFillAddressLine1" class="form-control" ng-model="customer.selected.addressLine1"/>
+                <input disabled id="autoFillAddressLine1" class="form-control" ng-model="customer.selected.address_1"/>
             </div>
             <div class="col-sm-6">
-                <input disabled id="autoFillAddressLine2" class="form-control" ng-model="customer.selected.addressLine2"/>
+                <input disabled id="autoFillAddressLine2" class="form-control" ng-model="customer.selected.address_2"/>
             </div>
         </div>
         <div class="row">
@@ -154,7 +154,7 @@
                 <input disabled id="autoFillState"  class="form-control" ng-model="customer.selected.state"/>
             </div>
             <div class="col-sm-2">
-                <input disabled id="autoFillZipCode" class="form-control" ng-model="customer.selected.zipCode"/>
+                <input disabled id="autoFillZipCode" class="form-control" ng-model="customer.selected.zip"/>
             </div>
             <div class="col-sm-4">
                 <input type="email" disabled id="autoFillEmail" class="form-control" ng-model="customer.selected.email"/>
