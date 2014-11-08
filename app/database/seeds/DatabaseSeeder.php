@@ -46,6 +46,18 @@ class CustomerTableSeeder extends Seeder {
             'email' => 'jaime@mi5.net',
             'phone' => '456-454-3456'
         ]);
+
+        Customer::create([
+            'name_first' => 'Adam',
+            'name_last' => 'Savage',
+            'address_1' => 'Mi6',
+            'birthDate' => date('c'),
+            'city' => 'Swag',
+            'state' => 'NJ',
+            'zip' => '54321',
+            'email' => 'adam2@savagecorp.com',
+            'phone' => '456-454-3456'
+        ]);
     }
 
 }
