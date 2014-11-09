@@ -7,9 +7,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             templateUrl:'views/home.html',
             controller: 'homeController'
 
-        }) .when('/sales',{
+        }).when('/sales',{
             templateUrl:'views/sales.html',
             controller: 'salesController'
+
+        }).when('/carsale',{
+            templateUrl:'views/carSale.html',
+            controller: 'carSaleController'
 
         }).otherwise({
             redirectTo:'/'

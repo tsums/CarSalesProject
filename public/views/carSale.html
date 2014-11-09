@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-sm-12">
+        <ui-select ng-model="car.selected" theme="bootstrap">
+            <ui-select-match placeholder="Select or search for a car...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}} - {{$select.selected.VIN}}</ui-select-match>
+            <ui-select-choices repeat="item in cars | filter: $select.search">
+                <div>{{item.year}} {{item.make}} {{item.model}} - {{item.color}}</div>
+                <small>{{item.VIN}}, ${{item.msrp}}</small>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+</div>
