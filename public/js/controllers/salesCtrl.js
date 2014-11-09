@@ -1,7 +1,7 @@
 /**
  * Created by taevis on 11/8/14.
  */
-angular.module('SalesCtrl', []).controller('salesController',['$sce','$scope','$http',function($sce, $scope,$http){
+angular.module('SalesCtrl', []).controller('salesController',['$location','$scope','$http','customerSaleService',function($location, $scope, $http, customerSaleService){
     "use strict";
     $scope.customer = {};
     $scope.customers = [];
@@ -16,10 +16,6 @@ angular.module('SalesCtrl', []).controller('salesController',['$sce','$scope','$
             console.log(data);
         });
 
-    $scope.trustAsHtml = function(value) {
-        return $sce.trustAsHtml(value);
-    };
-
     $scope.nope = function(){
         $scope.customer.selected=undefined;
     };
@@ -28,5 +24,12 @@ angular.module('SalesCtrl', []).controller('salesController',['$sce','$scope','$
         if($scope.customer.selected) return "";
         else return "Save and ";
     };
+
+    $scope.submitAndContinue = function(){
+        if($scope.customer.selected){
+            customerSaleService.saveCustomerIdNumber($scope.customer.selected.id);
+            $location.path('/carsale');
+        }
+    }
 
 }]);
