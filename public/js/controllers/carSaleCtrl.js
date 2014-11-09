@@ -14,5 +14,13 @@ angular.module('CarSaleCtrl', []).controller('carSaleController',['$scope','$htt
             console.log(data);
         });
 
-
+    $scope.submitPurchaseOrder = function(){
+        $http.post('/api/sales',{"when": new Date().toISOString().substring(0,10),"customer_id": $scope.customerNumber,
+            "VIN": $scope.car.selected.VIN, "price": $scope.car.selected.msrp})
+        .success(function(data){
+            console.log(data);
+        }).error(function(data){
+           console.log(data);
+        });
+    }
 }]);

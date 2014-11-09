@@ -1,15 +1,35 @@
+<form class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="customerNumber">Customer Id Number</label>
+        </div>
+        <div class="col-sm-5">
+            <label>Vehicle</label>
+        </div>
+        <div class="col-sm-4">
+            <label for="price">Cost of Vehicle</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <input id="customerNumber" disabled ng-model="customerNumber"/>
+        </div>
+        <div class="col-sm-5">
+            <ui-select ng-model="car.selected" theme="bootstrap">
+                <ui-select-match placeholder="Select or search for a car...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}} - {{$select.selected.VIN}}</ui-select-match>
+                <ui-select-choices repeat="item in cars | filter: $select.search">
+                    <div>{{item.year}} {{item.make}} {{item.model}} - {{item.color}}</div>
+                    <small>{{item.VIN}}, ${{item.msrp}}</small>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-sm-4">
+            <input id="price" class="form-control" ng-model="car.selected.msrp"/>
+        </div>
+    </div>
+</form>
 <div class="row">
-    <div class="col-sm-12">
-        <ui-select ng-model="car.selected" theme="bootstrap">
-            <ui-select-match placeholder="Select or search for a car...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}} - {{$select.selected.VIN}}</ui-select-match>
-            <ui-select-choices repeat="item in cars | filter: $select.search">
-                <div>{{item.year}} {{item.make}} {{item.model}} - {{item.color}}</div>
-                <small>{{item.VIN}}, ${{item.msrp}}</small>
-            </ui-select-choices>
-        </ui-select>
+    <div class="col-sm-2 col-sm-offset-10">
+        <button ng-click="submitPurchaseOrder()" class="btn btn-success pull-right">Purchase</button>
     </div>
 </div>
-<form>
-    <label for="customerNumber">Customer Id Number</label>
-    <input id="customerNumber" disabled ng-model="customerNumber"/>
-</form>
