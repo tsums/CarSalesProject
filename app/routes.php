@@ -22,6 +22,7 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::resource('customers', 'CustomerController');
 
+    Route::get('cars/unsold', 'CarsController@indexNotYetSold');
     Route::resource('cars', 'CarsController');
 
     Route::resource('sales', 'SalesController');

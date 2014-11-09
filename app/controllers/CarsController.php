@@ -13,6 +13,10 @@ class CarsController extends \BaseController {
         return Response::json(Car::all());
 	}
 
+    public function indexNotYetSold() {
+        return Response::json(Car::where('sold', '=', '0')->get());
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /cars/create
