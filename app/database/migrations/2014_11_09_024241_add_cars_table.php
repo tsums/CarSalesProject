@@ -16,6 +16,17 @@ class AddCarsTable extends Migration {
 		{
 			$table->dropColumn('inStock');
 		});
+
+        Schema::table('cars', function(Blueprint $table)
+        {
+            $table->float('cost');
+            $table->dropColumn('msrp');
+        });
+
+        Schema::table('cars', function(Blueprint $table)
+        {
+            $table->float('msrp');
+        });
 	}
 
 
