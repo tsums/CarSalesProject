@@ -10,6 +10,8 @@ class CarsTableSeeder extends Seeder {
         DB::table('cars')->delete();
 		$faker = Faker::create();
 
+        //makes fake cars, woo!
+
         $makes = ['Ford', 'Honda', 'Toyota', 'Chevrolet', 'BMW', 'Oldsmobile', 'Saturn', 'Subaru', 'Dodge', 'Jeep', 'Chrysler', 'Mercedes', 'Tesla'];
         $models = ['Excavator', 'Terminator', 'Cylon', 'Autobot', 'Mercenary', 'Troubadour', 'Cappuccino', 'Enforcer', 'Cosmonaut', 'Plumber', 'Impersonator', 'Relatiator', 'Bludgeoner', 'Pragmatizer', 'Ritualizer', 'Alchemist', 'Partitioner', 'Mover', 'Scribbler', 'Vortex', 'Behemoth', 'Colossus', 'Cerberus', 'Olympus'];
 
