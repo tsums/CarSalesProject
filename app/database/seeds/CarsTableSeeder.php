@@ -7,6 +7,7 @@ class CarsTableSeeder extends Seeder {
 
 	public function run()
 	{
+        DB::table('cars')->delete();
 		$faker = Faker::create();
 
 		foreach(range(1, 100) as $index)
