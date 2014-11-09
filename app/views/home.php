@@ -22,6 +22,7 @@
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/controllers/homeCtrl.js"></script>
     <script src="js/controllers/salesCtrl.js"></script>
+    <script src="js/controllers/carSaleCtrl.js"></script>
 
 
 </head>

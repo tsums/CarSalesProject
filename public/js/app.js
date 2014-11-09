@@ -1,1 +1,1 @@
-angular.module('carSailsApp',['ngRoute','ui.select','appRoutes','selectConfig','MainCtrl','HomeCtrl','SalesCtrl']);
+angular.module('carSailsApp',['ngRoute','ui.select','appRoutes','selectConfig','MainCtrl','HomeCtrl','SalesCtrl','CarSaleCtrl']);
