@@ -12,13 +12,15 @@ class CarsTableSeeder extends Seeder {
 
 		foreach(range(1, 100) as $index)
 		{
+            $cost = $faker->numberBetween(12500, 27000);
 			Car::create([
-                'VIN' => $faker->creditCardNumber,
+                'VIN' => substr(strtoupper($faker->md5),16),
                 'make' => $faker->word,
                 'model' => $faker->word,
                 'year' => $faker->year,
                 'color' => $faker->colorName,
-                'msrp' => $faker->numberBetween(17000, 35000),
+                'msrp' => $cost * 1.15,
+                'cost' => $cost,
                 'sold' => $faker->boolean()
 			]);
 		}
