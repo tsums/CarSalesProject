@@ -18,7 +18,6 @@ class CarsTableSeeder extends Seeder {
                 'year' => $faker->year,
                 'color' => $faker->colorName,
                 'msrp' => $faker->numberBetween(17000, 35000),
-                'inStock' => $faker->boolean(),
                 'sold' => $faker->boolean()
 			]);
 		}
