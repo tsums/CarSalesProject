@@ -22,4 +22,6 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::resource('customers', 'CustomerController');
 
+    Route::resource('cars', 'CarsController');
+
 });
