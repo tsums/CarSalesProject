@@ -24,6 +24,21 @@ class CustomerController extends \BaseController {
 	}
 
 
+    /*
+     * EXAMPLE
+     * {
+            "name_first": "John",
+            "name_last": "Savage",
+            "address_1": "Mi5",
+            "address_2": null,
+            "birthDate": "2014-5-08",
+            "city": "Donde",
+            "state": "CA",
+            "zip": "12345",
+            "phone": "456-454-3456",
+            "email": "adam@masterrace.com"
+        }
+     */
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -31,7 +46,17 @@ class CustomerController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        if (! Input::isJson() ) return Response::make("Must Post JSON", 400);
+
+        $array = Input::json()->all();
+
+        //TODO catch DB integrity exceptions.
+
+        $customer = Customer::create($array);
+
+        if ($customer) return Response::json($customer);
+
+        return Response::make("Invalid Request", 400);
 	}
 
 
@@ -44,7 +69,7 @@ class CustomerController extends \BaseController {
 	public function show($id)
 	{
         $customer = Customer::find($id);
-//        if (empty($customer)) Response::
+        if (empty($customer)) return Response::make("Customer with id: $id not found", 404);
         return Response::json($customer);
 	}
 

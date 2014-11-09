@@ -8,5 +8,6 @@
 
 class Customer extends Eloquent {
 
+    protected $fillable = ['name_first', 'name_last', 'address_1', 'address_2', 'city', 'zip', 'state', 'phone', 'email', 'birthDate'];
 
 } 
