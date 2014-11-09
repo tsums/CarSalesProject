@@ -24,4 +24,6 @@ Route::group(['prefix' => 'api'], function() {
 
     Route::resource('cars', 'CarsController');
 
+    Route::resource('sales', 'SalesController');
+
 });
