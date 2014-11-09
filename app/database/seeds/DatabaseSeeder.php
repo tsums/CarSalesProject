@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+use Faker\Provider\en_US\Address;
 
 class DatabaseSeeder extends Seeder {
 
@@ -13,6 +15,7 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
+        DB::table('sales')->delete();
 		$this->call('CustomerTableSeeder');
         $this->call('CarsTableSeeder');
 	}
@@ -24,41 +27,21 @@ class CustomerTableSeeder extends Seeder {
     public function run() {
         DB::table('customers')->delete();
 
-        Customer::create([
-            'name_first' => 'Adam',
-            'name_last' => 'Savage',
-            'address_1' => 'Mi5',
-            'birthDate' => date('c'),
-            'city' => 'Donde',
-            'state' => 'CA',
-            'zip' => '12345',
-            'email' => 'adam@savage.com',
-            'phone' => '456-454-3456'
-        ]);
-
-        Customer::create([
-            'name_first' => 'Jaime',
-            'name_last' => 'Hyneman',
-            'address_1' => 'Mi5',
-            'birthDate' => date('c'),
-            'city' => 'Los Angeles',
-            'state' => 'CA',
-            'zip' => '12346',
-            'email' => 'jaime@mi5.net',
-            'phone' => '456-454-3456'
-        ]);
-
-        Customer::create([
-            'name_first' => 'Adam',
-            'name_last' => 'Savage',
-            'address_1' => 'Mi6',
-            'birthDate' => date('c'),
-            'city' => 'Swag',
-            'state' => 'NJ',
-            'zip' => '54321',
-            'email' => 'adam2@savagecorp.com',
-            'phone' => '456-454-3456'
-        ]);
+        $faker = Faker::create();
+        foreach(range(1,20) as $index) {
+            Customer::create([
+                'name_first' => $faker->firstName,
+                'name_last' => $faker->lastName,
+                'address_1' => $faker->buildingNumber . " " . $faker->streetName,
+                'address_2' => rand(0,10) <=2 ? Address::secondaryAddress() : "",
+                'city' => $faker->city,
+                'state' => Address::stateAbbr(),
+                'phone' => $faker->phoneNumber,
+                'email' => $faker->safeEmail,
+                'zip' => Address::postcode(),
+                'birthDate' => $faker->dateTimeBetween('1950-01-01', date('c'))
+            ]);
+        }
     }
 
 }
