@@ -7,7 +7,7 @@ angular.module('CarSaleCtrl', []).controller('carSaleController',['$scope','$htt
     $scope.cars = [];
     $http.get('/api/cars').
         success(function(data) {
-            $scope.customers=data;
+            $scope.cars=data;
         }).
         error(function(data) {
             console.log(data);
