@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- JS -->
     <script src="bower_components/angular/angular.min.js"></script> <!-- load angular -->
@@ -27,7 +28,7 @@
 
 
 </head>
-<body ng-app="carSailsApp" ng-controller="mainController">
+<body  ng-app="carSailsApp" ng-controller="mainController">
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">

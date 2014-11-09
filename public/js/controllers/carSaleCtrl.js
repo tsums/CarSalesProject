@@ -6,7 +6,7 @@ angular.module('CarSaleCtrl', []).controller('carSaleController',['$scope','$htt
     $scope.car = {};
     $scope.cars = [];
     $scope.customerNumber = customerSaleService.getCustomerIdNumber();
-    $http.get('/api/cars').
+    $http.get('/api/cars/unsold').
         success(function(data) {
             $scope.cars=data;
         }).
