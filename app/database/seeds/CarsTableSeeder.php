@@ -12,8 +12,8 @@ class CarsTableSeeder extends Seeder {
 
         //makes fake cars, woo!
 
-        $makes = ['Ford', 'Honda', 'Toyota', 'Chevrolet', 'BMW', 'Oldsmobile', 'Saturn', 'Subaru', 'Dodge', 'Jeep', 'Chrysler', 'Mercedes', 'Tesla'];
-        $models = ['Excavator', 'Terminator', 'Cylon', 'Autobot', 'Mercenary', 'Troubadour', 'Cappuccino', 'Enforcer', 'Cosmonaut', 'Plumber', 'Impersonator', 'Relatiator', 'Bludgeoner', 'Pragmatizer', 'Ritualizer', 'Alchemist', 'Partitioner', 'Mover', 'Scribbler', 'Vortex', 'Behemoth', 'Colossus', 'Cerberus', 'Olympus'];
+        $makes = ['Ford', 'Honda', 'Toyota', 'Chevrolet', 'BMW', 'Oldsmobile', 'Saturn', 'Subaru', 'Dodge', 'Jeep', 'Chrysler', 'Mercedes', 'Tesla', 'Kia', 'Lexus', 'Lincoln', 'Acura', 'GMC'];
+        $models = ['Excavator', 'Terminator', 'Cylon', 'Autobot', 'Mercenary', 'Troubadour', 'Cappuccino', 'Enforcer', 'Cosmonaut', 'Plumber', 'Impersonator', 'Relatiator', 'Bludgeoner', 'Pragmatizer', 'Ritualizer', 'Alchemist', 'Partitioner', 'Mover', 'Scribbler', 'Vortex', 'Behemoth', 'Colossus', 'Cerberus', 'Olympus', 'Macchiato', 'Miner', 'Jackrabbit', 'Rumbler', 'Destroyer', 'Corsair'];
 
 		foreach(range(1, 100) as $index)
 		{
