@@ -30,16 +30,16 @@
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <input id="name_first" class="form-control" ng-model="customer.create.name_first"/>
+                <input ng-disabled="submitting" id="name_first" class="form-control" ng-model="customer.create.name_first"/>
             </div>
             <div class="col-sm-3">
-                <input id="name_last" class="form-control" ng-model="customer.create.name_last"/>
+                <input ng-disabled="submitting" id="name_last" class="form-control" ng-model="customer.create.name_last"/>
             </div>
             <div class="col-sm-3">
-                <input type="date" id="birthDate" class="form-control" ng-model="customer.create.birthDate"/>
+                <input ng-disabled="submitting" type="date" id="birthDate" class="form-control" ng-model="customer.create.birthDate"/>
             </div>
             <div class="col-sm-3">
-                <input type="tel" id="phone" class="form-control" ng-model="customer.create.phone"/>
+                <input ng-disabled="submitting" type="tel" id="phone" class="form-control" ng-model="customer.create.phone"/>
             </div>
         </div>
         <div class="row">
@@ -52,10 +52,10 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <input id="address_1" class="form-control" ng-model="customer.create.address_1"/>
+                <input ng-disabled="submitting" id="address_1" class="form-control" ng-model="customer.create.address_1"/>
             </div>
             <div class="col-sm-6">
-                <input id="address_2" class="form-control" ng-model="customer.create.address_2"/>
+                <input ng-disabled="submitting" id="address_2" class="form-control" ng-model="customer.create.address_2"/>
             </div>
         </div>
         <div class="row">
@@ -74,16 +74,16 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <input id="city" class="form-control" ng-model="customer.create.city"/>
+                <input ng-disabled="submitting" id="city" class="form-control" ng-model="customer.create.city"/>
             </div>
             <div class="col-sm-2">
-                <input id="state"  class="form-control" ng-model="customer.create.state"/>
+                <input ng-disabled="submitting" id="state"  class="form-control" ng-model="customer.create.state"/>
             </div>
             <div class="col-sm-2">
-                <input id="zip" class="form-control" ng-model="customer.create.zip"/>
+                <input ng-disabled="submitting" id="zip" class="form-control" ng-model="customer.create.zip"/>
             </div>
             <div class="col-sm-4">
-                <input type="email" id="email" class="form-control" ng-model="customer.create.email"/>
+                <input ng-disabled="submitting" type="email" id="email" class="form-control" ng-model="customer.create.email"/>
             </div>
         </div>
     </div>
@@ -164,6 +164,6 @@
 </form>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-10">
-        <button ng-click="submitAndContinue()" class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
+        <button ng-disabled="submitting" ng-click="submitAndContinue()" class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
     </div>
 </div>
