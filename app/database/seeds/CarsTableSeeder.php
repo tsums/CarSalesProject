@@ -10,18 +10,21 @@ class CarsTableSeeder extends Seeder {
         DB::table('cars')->delete();
 		$faker = Faker::create();
 
+        $makes = ['Ford', 'Honda', 'Toyota', 'Chevrolet', 'BMW', 'Oldsmobile', 'Saturn', 'Subaru', 'Dodge', 'Jeep', 'Chrysler', 'Mercedes', 'Tesla'];
+        $models = ['Excavator', 'Terminator', 'Cylon', 'Autobot', 'Mercenary', 'Troubadour', 'Cappuccino', 'Enforcer', 'Cosmonaut', 'Plumber', 'Impersonator', 'Relatiator', 'Bludgeoner', 'Pragmatizer', 'Ritualizer', 'Alchemist', 'Partitioner', 'Mover', 'Scribbler', 'Vortex', 'Behemoth', 'Colossus', 'Cerberus', 'Olympus'];
+
 		foreach(range(1, 100) as $index)
 		{
             $cost = $faker->numberBetween(12500, 27000);
 			Car::create([
                 'VIN' => substr(strtoupper($faker->md5),16),
-                'make' => $faker->word,
-                'model' => $faker->word,
+                'make' => $makes[array_rand($makes)],
+                'model' => $models[array_rand($models)],
                 'year' => $faker->year,
                 'color' => $faker->colorName,
                 'msrp' => $cost * 1.15,
                 'cost' => $cost,
-                'sold' => $faker->boolean()
+                'sold' => false
 			]);
 		}
 	}
