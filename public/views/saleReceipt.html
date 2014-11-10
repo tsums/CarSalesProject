@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="css/print.css">
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h2>Point of Sale Receipt</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        <b>Sale #:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Customer Name:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Customer Number:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Vehicle Identification #:</b>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        {{saleObject.id}}
+    </div>
+    <div class="col-sm-2">
+        {{customerObject.name_last}}, {{customerObject.name_first}}
+    </div>
+    <div class="col-sm-2">
+        {{customerObject.id}}
+    </div>
+    <div class="col-sm-2">
+        {{carObject.VIN}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h3>Customer Information</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        <b>Address Line 1:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Address Line 2:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>City:</b>
+    </div>
+    <div class="col-sm-1">
+        <b>State:</b>
+    </div>
+    <div class="col-sm-1">
+        <b>Zip Code:</b>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        {{customerObject.address_1}}
+    </div>
+    <div class="col-sm-2">
+        {{customerObject.address_2}}
+    </div>
+    <div class="col-sm-2">
+        {{customerObject.city}}
+    </div>
+    <div class="col-sm-1">
+        {{customerObject.state}}
+    </div>
+    <div class="col-sm-1">
+        {{customerObject.zip}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        <b>Phone Number:</b>
+    </div>
+    <div class="col-sm-4">
+        <b>Email:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Date of Birth:</b>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        {{customerObject.phone}}
+    </div>
+    <div class="col-sm-4">
+        {{customerObject.email}}
+    </div>
+    <div class="col-sm-2">
+        {{customerObject.birthDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h3>Vehicle Information</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        <b>Year:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Make:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Model:</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Color:</b>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2">
+        {{carObject.year}}
+    </div>
+    <div class="col-sm-2">
+        {{carObject.make}}
+    </div>
+    <div class="col-sm-2">
+        {{carObject.model}}
+    </div>
+    <div class="col-sm-2">
+        {{carObject.color}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h3>Cost Information</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-1 text-right col-sm-offset-2">
+        <b>MSRP:</b>
+    </div>
+    <div class="col-sm-2">
+        ${{carObject.msrp}}
+    </div>
+    <div class="col-sm-2 text-right">
+        <b>Price Paid By Customer:</b>
+    </div>
+    <div class="col-sm-3">
+        ${{saleObject.price}}
+    </div>
+</div>
