@@ -68,7 +68,7 @@
             <div class="col-sm-2">
                 <label class="control-label" for="zip">Zip Code</label>
             </div>
-            <div class="col-sm-4">
+            <div ng-class="{'has-error':!isValidEmail(customer.create.email)}" class="col-sm-4">
                 <label class="control-label" for="email">Email</label>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="col-sm-2">
                 <input ng-disabled="submitting" id="zip" class="form-control" ng-model="customer.create.zip"/>
             </div>
-            <div class="col-sm-4">
+            <div ng-class="{'has-error': !isValidEmail(customer.create.email)}" class="col-sm-4">
                 <input ng-disabled="submitting" type="email" id="email" class="form-control" ng-model="customer.create.email"/>
             </div>
         </div>

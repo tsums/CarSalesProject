@@ -55,8 +55,8 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
     };
 
     $scope.isValidEmail = function(email){
-        var emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        return emailReg.test(email)||email=="";
+        var emailReg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+        return emailReg.test(email)||email==""||!email;
     };
 
 }]);
