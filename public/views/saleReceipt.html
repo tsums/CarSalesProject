@@ -5,30 +5,30 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-2">
-        <b>Sale #:</b>
+    <div class="col-sm-1 col-sm-offset-2 col-md-2">
+        <b>Sale</b>
     </div>
-    <div class="col-sm-2">
-        <b>Customer Name:</b>
+    <div class="col-sm-3 col-md-2">
+        <b>Customer Name</b>
     </div>
-    <div class="col-sm-2">
-        <b>Customer Number:</b>
+    <div class="col-sm-3 col-md-2">
+        <b>Customer Number</b>
     </div>
-    <div class="col-sm-2">
-        <b>Vehicle Identification #:</b>
+    <div class="col-sm-1 col-md-2">
+        <b>VIN</b>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-2">
+    <div class="col-sm-1 col-sm-offset-2 col-md-2">
         {{saleObject.id}}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3 col-md-2">
         {{customerObject.name_last}}, {{customerObject.name_first}}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3 col-md-2">
         {{customerObject.id}}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1 col-md-2">
         {{carObject.VIN}}
     </div>
 </div>
@@ -38,30 +38,30 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-2">
-        <b>Address Line 1:</b>
+    <div class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2">
+        <b>Address Line 1</b>
     </div>
-    <div class="col-sm-2">
-        <b>Address Line 2:</b>
+    <div class="col-sm-3 col-md-2">
+        <b>Address Line 2</b>
     </div>
-    <div class="col-sm-2">
-        <b>City:</b>
-    </div>
-    <div class="col-sm-1">
-        <b>State:</b>
+    <div class="col-sm-3 col-md-2">
+        <b>City</b>
     </div>
     <div class="col-sm-1">
-        <b>Zip Code:</b>
+        <b>State</b>
+    </div>
+    <div class="col-sm-1">
+        <b>Zip</b>
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-2">
+    <div class="col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2">
         {{customerObject.address_1}}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3 col-md-2">
         {{customerObject.address_2}}
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3 col-md-2">
         {{customerObject.city}}
     </div>
     <div class="col-sm-1">
@@ -73,13 +73,13 @@
 </div>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-2">
-        <b>Phone Number:</b>
+        <b>Phone #</b>
     </div>
     <div class="col-sm-4">
-        <b>Email:</b>
+        <b>Email</b>
     </div>
     <div class="col-sm-2">
-        <b>Date of Birth:</b>
+        <b>DOB</b>
     </div>
 </div>
 <div class="row">
@@ -100,16 +100,16 @@
 </div>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-2">
-        <b>Year:</b>
+        <b>Year</b>
     </div>
     <div class="col-sm-2">
-        <b>Make:</b>
+        <b>Make</b>
     </div>
     <div class="col-sm-2">
-        <b>Model:</b>
+        <b>Model</b>
     </div>
     <div class="col-sm-2">
-        <b>Color:</b>
+        <b>Color</b>
     </div>
 </div>
 <div class="row">
@@ -133,15 +133,15 @@
 </div>
 <div class="row">
     <div class="col-sm-1 text-right col-sm-offset-2">
-        <b>MSRP:</b>
+        <b>MSRP</b>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1 col-md-2">
         ${{carObject.msrp}}
     </div>
-    <div class="col-sm-2 text-right">
-        <b>Price Paid By Customer:</b>
+    <div class="col-sm-4 text-right col-md-2">
+        <b>Price Paid By Customer</b>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2 col-md-3">
         ${{saleObject.price}}
     </div>
 </div>
