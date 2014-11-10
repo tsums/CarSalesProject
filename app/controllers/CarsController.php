@@ -13,7 +13,8 @@ class CarsController extends \BaseController {
         return Response::json(Car::all());
 	}
 
-    public function indexNotYetSold() {
+    public function indexNotYetSold()
+    {
         return Response::json(Car::where('sold', '=', '0')->get());
     }
 
@@ -22,6 +23,13 @@ class CarsController extends \BaseController {
         $car = Car::find($id);
         if (empty($car)) return Response::make("Car with id: $id not found", 404);
         return Response::json($car->sale);
+    }
+
+    public function showServices($id)
+    {
+        $car = Car::find($id);
+        if (empty($car)) return Response::make("Car with id: $id not found", 404);
+        return Response::json($car->services);
     }
 
 	/**

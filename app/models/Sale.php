@@ -11,7 +11,7 @@ class Sale extends Eloquent {
     protected $fillable = ['when', 'customer_id', 'car_id', 'price'];
 
     public function car() {
-        return $this->hasOne('Car', 'id', 'car_id');
+        return $this->belongsTo('Car');
     }
 
     public function customer() {
