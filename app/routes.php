@@ -20,11 +20,16 @@ Route::get('/', function()
 
 Route::group(['prefix' => 'api'], function() {
 
+    Route::get('/customers/{id}/sales', 'CustomerController@indexSales');
+    Route::get('/customers/{id}/cars', 'CustomerController@indexCars');
     Route::resource('customers', 'CustomerController');
 
+    Route::get('cars/{id}/sale', 'CarsController@showSale');
     Route::get('cars/unsold', 'CarsController@indexNotYetSold');
     Route::resource('cars', 'CarsController');
 
+    Route::get('sales/{id}/car', 'SalesController@showCar');
+    Route::get('sales/{id}/customer', 'SalesController@showCustomer');
     Route::resource('sales', 'SalesController');
 
 });

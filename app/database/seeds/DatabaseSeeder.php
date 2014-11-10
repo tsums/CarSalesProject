@@ -66,7 +66,7 @@ class CustomerTableSeeder extends Seeder {
 
     protected function zip() {
         $zip = "";
-        foreach(range(0,5) as $index) {
+        foreach(range(0,4) as $index) {
             $zip = $zip . Address::randomDigitNotNull();
         }
         return $zip;

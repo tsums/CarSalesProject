@@ -17,6 +17,13 @@ class CarsController extends \BaseController {
         return Response::json(Car::where('sold', '=', '0')->get());
     }
 
+    public function showSale($id)
+    {
+        $car = Car::find($id);
+        if (empty($car)) return Response::make("Car with id: $id not found", 404);
+        return Response::json($car->sale);
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /cars/create
