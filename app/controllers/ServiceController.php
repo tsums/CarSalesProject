@@ -25,6 +25,14 @@ class ServiceController extends \BaseController
         //
     }
 
+    /*
+     *  EXAMPLE
+     *  {
+     *      "car_id" : "3",
+     *      "scheduled" : "2014-11-12T14:30:00",
+     *      "time_est" : 120
+     *  }
+     */
     /**
      * Store a newly created resource in storage.
      * POST /services
