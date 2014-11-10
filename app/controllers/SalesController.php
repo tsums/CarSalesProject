@@ -13,6 +13,20 @@ class SalesController extends \BaseController {
         return Response::json(Sale::all());
 	}
 
+    public function showCar($id)
+    {
+        $sale = Sale::find($id);
+        if (empty($sale)) return Response::make("Sale with id: $id not found", 404);
+        return Response::json($sale->car);
+    }
+
+    public function showCustomer($id)
+    {
+        $sale = Sale::find($id);
+        if (empty($sale)) return Response::make("Sale with id: $id not found", 404);
+        return Response::json($sale->customer);
+    }
+
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /sales/create
@@ -55,7 +69,7 @@ class SalesController extends \BaseController {
 
         if ($sale) {
 
-            $vin = $sale->VIN;
+            $vin = $sale->car_VIN;
 
             $car = Car::where('VIN', '=', $vin)->first();
 

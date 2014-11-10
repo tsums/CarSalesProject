@@ -10,4 +10,16 @@ class Customer extends Eloquent {
 
     protected $fillable = ['name_first', 'name_last', 'address_1', 'address_2', 'city', 'zip', 'state', 'phone', 'email', 'birthDate'];
 
+    public function sales() {
+        return $this->hasMany('Sale');
+    }
+
+    public function cars() {
+        $cars = [];
+        foreach ( $this->sales() as $sale ) {
+            $cars[] = $sale->car;
+        }
+        return \Illuminate\Database\Eloquent\Collection::make($cars);
+
+    }
 } 

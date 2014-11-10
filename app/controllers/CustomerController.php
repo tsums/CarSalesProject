@@ -13,6 +13,21 @@ class CustomerController extends \BaseController {
 	}
 
 
+    public function indexSales($id)
+    {
+        $customer = Customer::find($id);
+        if (empty($customer)) return Response::make("Customer with id: $id not found", 404);
+        return Response::json($customer->sales);
+    }
+
+    public function indexCars($id)
+    {
+        $customer = Customer::find($id);
+        if (empty($customer)) return Response::make("Customer with id: $id not found", 404);
+        return Response::json($customer->cars);
+    }
+
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
