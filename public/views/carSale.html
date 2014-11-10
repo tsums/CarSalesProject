@@ -24,12 +24,12 @@
             </ui-select>
         </div>
         <div class="col-sm-4">
-            <input id="price" class="form-control" ng-model="car.selected.msrp"/>
+            <input ng-disabled="!car.selected" id="price" class="form-control" ng-model="car.selected.msrp"/>
         </div>
     </div>
 </form>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-10">
-        <button ng-click="submitPurchaseOrder()" class="btn btn-success pull-right">Purchase</button>
+        <button ng-disabled="submitting||!isValidPurchase()" ng-click="submitPurchaseOrder()" class="btn btn-success pull-right">Purchase</button>
     </div>
 </div>

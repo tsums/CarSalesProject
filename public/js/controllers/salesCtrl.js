@@ -27,12 +27,12 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
     };
 
     $scope.validateCreate = function(jsonValidate){
-        if(jsonValidate&&jsonValidate.name_last&&jsonValidate.name_first&&jsonValidate.address_1&&jsonValidate.city&&(jsonValidate.state).length==2&&(jsonValidate.zip).length==5&&jsonValidate.phone&&(jsonValidate.birthDate.toISOString().substring(0,10)).length==10&&jsonValidate.email){
-            return true;
-        } else{
-            console.log(jsonValidate);
-            return false;
-        }
+         return jsonValidate&&jsonValidate.name_last&&jsonValidate.name_first&&jsonValidate.address_1&&jsonValidate.city&&(jsonValidate.state).length==2&&(jsonValidate.zip).length==5&&jsonValidate.phone&&(jsonValidate.birthDate.toISOString().substring(0,10)).length==10&&jsonValidate.email;
+    };
+
+    $scope.isValidEmail = function(email){
+        var emailReg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+        return emailReg.test(email)||email==""||!email;
     };
 
     $scope.submitAndContinue = function(){
@@ -52,11 +52,6 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
         } else {
             $scope.submitting = false;
         }
-    };
-
-    $scope.isValidEmail = function(email){
-        var emailReg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-        return emailReg.test(email)||email==""||!email;
     };
 
 }]);
