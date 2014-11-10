@@ -1,12 +1,14 @@
 <?php
 
-class ServiceAction extends Eloquent {
+class ServiceAction extends Eloquent
+{
 
-	protected $fillable = [];
+    protected $fillable = [];
 
     protected $table = 'service_actions';
 
-    public function service() {
+    public function service()
+    {
         return $this->belongsTo('Service');
     }
 

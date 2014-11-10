@@ -11,29 +11,34 @@
 |
 */
 
-
-
-Route::get('/', function()
-{
-	return View::make('home');
+/* Frontend */
+Route::get('/', function () {
+    return View::make('home');
 });
 
-Route::group(['prefix' => 'api'], function() {
+Route::group(['prefix' => 'api'], function () {
 
+    //TODO except methods not supported in the controllers on resources.
+
+    /* Customers */
     Route::get('/customers/{id}/sales', 'CustomerController@indexSales');
     Route::get('/customers/{id}/cars', 'CustomerController@indexCars');
     Route::resource('customers', 'CustomerController');
 
+    /* Cars */
     Route::get('cars/{id}/services', 'CarsController@showServices');
     Route::get('cars/{id}/sale', 'CarsController@showSale');
     Route::get('cars/unsold', 'CarsController@indexNotYetSold');
     Route::resource('cars', 'CarsController');
 
+    /* Sales */
     Route::get('sales/{id}/car', 'SalesController@showCar');
     Route::get('sales/{id}/customer', 'SalesController@showCustomer');
     Route::resource('sales', 'SalesController');
 
-    Route::get('/services/{id}/actions', 'ServiceController@actions');
+    /* Services */
+    Route::get('/services/{id}/actions', 'ServiceController@ShowActions');
+    Route::get('/services/{id}/car', 'ServiceController@showCar');
     Route::resource('services', 'ServiceController');
 
 });

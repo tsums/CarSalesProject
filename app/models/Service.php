@@ -1,14 +1,17 @@
 <?php
 
-class Service extends Eloquent {
+class Service extends Eloquent
+{
 
-	protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
+    protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 
-    public function actions() {
+    public function actions()
+    {
         return $this->hasMany('ServiceAction');
     }
 
-    public function car() {
+    public function car()
+    {
         return $this->belongsTo('Car');
     }
 
