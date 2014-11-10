@@ -26,8 +26,8 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
         else return "Save and ";
     };
 
-    var validateCreate = function(jsonValidate){
-        if(jsonValidate.name_last&&jsonValidate.name_first&&jsonValidate.address_1&&jsonValidate.city&&(jsonValidate.state).length==2&&(jsonValidate.zip).length==5&&jsonValidate.phone&&(jsonValidate.birthDate.toISOString().substring(0,10)).length==10&&jsonValidate.email){
+    $scope.validateCreate = function(jsonValidate){
+        if(jsonValidate&&jsonValidate.name_last&&jsonValidate.name_first&&jsonValidate.address_1&&jsonValidate.city&&(jsonValidate.state).length==2&&(jsonValidate.zip).length==5&&jsonValidate.phone&&(jsonValidate.birthDate.toISOString().substring(0,10)).length==10&&jsonValidate.email){
             return true;
         } else{
             console.log(jsonValidate);
@@ -40,7 +40,7 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
         if($scope.customer.selected) {
             customerSaleService.saveCustomerIdNumber($scope.customer.selected.id);
             $location.path('/carsale');
-        } else if ($scope.customer.create && validateCreate($scope.customer.create)){
+        } else if ($scope.customer.create && $scope.validateCreate($scope.customer.create)){
             $scope.customer.create.birthDate.toISOString().substring(0,10);
             $http.post('/api/customers',$scope.customer.create).success(function(data){
                 customerSaleService.saveCustomerIdNumber(data.id);
@@ -52,6 +52,11 @@ angular.module('SalesCtrl', []).controller('salesController',['$location','$scop
         } else {
             $scope.submitting = false;
         }
-    }
+    };
+
+    $scope.isValidEmail = function(email){
+        var emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailReg.test(email)||email=="";
+    };
 
 }]);

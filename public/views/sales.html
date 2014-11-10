@@ -16,16 +16,16 @@
     <div ng-hide="customer.selected">
         <div class="row">
             <div class="col-sm-3">
-                <label for="name_first">First Name</label>
+                <label class="control-label" for="name_first">First Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="name_last">Last Name</label>
+                <label class="control-label" for="name_last">Last Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="birthDate">Date of Birth</label>
+                <label class="control-label" for="birthDate">Date of Birth</label>
             </div>
             <div class="col-sm-3">
-                <label for="phone">Phone Number</label>
+                <label class="control-label" for="phone">Phone Number</label>
             </div>
         </div>
         <div class="row">
@@ -44,10 +44,10 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <label for="address_1">Address Line 1</label>
+                <label class="control-label" for="address_1">Address Line 1</label>
             </div>
             <div class="col-sm-6">
-                <label for="address_2">Address Line 2</label>
+                <label class="control-label" for="address_2">Address Line 2</label>
             </div>
         </div>
         <div class="row">
@@ -60,16 +60,16 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <label for="city">City</label>
+                <label class="control-label" for="city">City</label>
             </div>
             <div class="col-sm-2">
-                <label for="state">State</label>
+                <label class="control-label" for="state">State</label>
             </div>
             <div class="col-sm-2">
-                <label for="zip">Zip Code</label>
+                <label class="control-label" for="zip">Zip Code</label>
             </div>
             <div class="col-sm-4">
-                <label for="email">Email</label>
+                <label class="control-label" for="email">Email</label>
             </div>
         </div>
         <div class="row">
@@ -90,16 +90,16 @@
     <div ng-show="customer.selected">
         <div class="row">
             <div class="col-sm-3">
-                <label for="autoFillFirstName">First Name</label>
+                <label class="control-label" for="autoFillFirstName">First Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="autoFillLastName">Last Name</label>
+                <label class="control-label" for="autoFillLastName">Last Name</label>
             </div>
             <div class="col-sm-3">
-                <label for="autoFillDob">Date of Birth</label>
+                <label class="control-label" for="autoFillDob">Date of Birth</label>
             </div>
             <div class="col-sm-3">
-                <label for="autoFillPhone">Phone Number</label>
+                <label class="control-label" for="autoFillPhone">Phone Number</label>
             </div>
         </div>
         <div class="row">
@@ -118,10 +118,10 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <label for="autoFillAddressLine1">Address Line 1</label>
+                <label class="control-label" for="autoFillAddressLine1">Address Line 1</label>
             </div>
             <div class="col-sm-6">
-                <label for="autoFillAddressLine2">Address Line 2</label>
+                <label class="control-label" for="autoFillAddressLine2">Address Line 2</label>
             </div>
         </div>
         <div class="row">
@@ -134,16 +134,16 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <label for="autoFillCity">City</label>
+                <label class="control-label" for="autoFillCity">City</label>
             </div>
             <div class="col-sm-2">
-                <label for="autoFillState">State</label>
+                <label class="control-label" for="autoFillState">State</label>
             </div>
             <div class="col-sm-2">
-                <label for="autoFillZipCode">Zip Code</label>
+                <label class="control-label" for="autoFillZipCode">Zip Code</label>
             </div>
             <div class="col-sm-4">
-                <label for="autoFillEmail">Email</label>
+                <label class="control-label" for="autoFillEmail">Email</label>
             </div>
         </div>
         <div class="row">
@@ -164,6 +164,6 @@
 </form>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-10">
-        <button ng-disabled="submitting" ng-click="submitAndContinue()" class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
+        <button ng-disabled="submitting || (!validateCreate(customer.create) && !customer.selected)" ng-click="submitAndContinue()" class="btn btn-success pull-right">{{shouldISaveAndContinue()}}Continue</button>
     </div>
 </div>
