@@ -14,7 +14,7 @@ class AddSalesTable extends Migration {
 	{
 		Schema::table('sales', function(Blueprint $table)
 		{
-            $table->foreign('car_VIN')->references('VIN')->on('cars');
+            $table->foreign('car_id')->references('id')->on('cars');
             $table->float('price');
 		});
 	}

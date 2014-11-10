@@ -69,9 +69,7 @@ class SalesController extends \BaseController {
 
         if ($sale) {
 
-            $vin = $sale->car_VIN;
-
-            $car = Car::where('VIN', '=', $vin)->first();
+            $car = $sale->car;
 
             $car->sold = 1;
             $car->save();

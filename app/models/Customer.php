@@ -8,18 +8,16 @@
 
 class Customer extends Eloquent {
 
+    //TODO primary key
+
     protected $fillable = ['name_first', 'name_last', 'address_1', 'address_2', 'city', 'zip', 'state', 'phone', 'email', 'birthDate'];
 
     public function sales() {
         return $this->hasMany('Sale');
     }
 
-    public function cars() {
-        $cars = [];
-        foreach ( $this->sales() as $sale ) {
-            $cars[] = $sale->car;
-        }
-        return \Illuminate\Database\Eloquent\Collection::make($cars);
-
+    public function cars()
+    {
+        return $this->belongsToMany('Car', 'sales', 'customer_id', 'car_id')->withPivot('customer_id', 'car_id');
     }
 } 

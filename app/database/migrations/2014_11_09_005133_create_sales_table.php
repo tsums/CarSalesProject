@@ -19,7 +19,7 @@ class CreateSalesTable extends Migration {
 			$table->date('when');
             $table->integer('customer_id')->unsigned();
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->string('car_VIN');
+            $table->integer('car_id')->unsigned();
 
 
 

@@ -8,10 +8,10 @@
 
 class Sale extends Eloquent {
 
-    protected $fillable = ['when', 'customer_id', 'car_VIN', 'price'];
+    protected $fillable = ['when', 'customer_id', 'car_id', 'price'];
 
     public function car() {
-        return $this->hasOne('Car', 'VIN', 'car_VIN');
+        return $this->hasOne('Car', 'id', 'car_id');
     }
 
     public function customer() {
