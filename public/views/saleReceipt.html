@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="css/print.css">
 <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-md-offset-1">
         <h2>Point of Sale Receipt</h2>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-1 col-xs-offset-2 col-md-2">
+    <div class="col-xs-1 col-xs-offset-1 col-md-2 col-md-offset-2">
         <b>Sale</b>
     </div>
     <div class="col-xs-3 col-md-2">
@@ -19,7 +19,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-1 col-xs-offset-2 col-md-2">
+    <div class="col-xs-1 col-xs-offset-1 col-md-2 col-md-offset-2">
         {{saleObject.id}}
     </div>
     <div class="col-xs-3 col-md-2">
@@ -33,46 +33,51 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-md-offset-1">
         <h3>Customer Information</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-3 col-xs-offset-1 col-md-2 col-md-offset-2">
-        <b>Address Line 1</b>
+    <div class="col-xs-5 col-xs-offset-1 col-md-4 col-md-offset-2">
+        <b>Address 1</b>
     </div>
-    <div class="col-xs-3 col-md-2">
-        <b>Address Line 2</b>
+    <div class="col-xs-5 col-md-4">
+        <b>Address 2</b>
     </div>
-    <div class="col-xs-3 col-md-2">
+</div>
+<div class="row">
+    <div class="col-xs-5 col-xs-offset-1 col-md-4 col-md-offset-2">
+        {{customerObject.address_1}}
+    </div>
+    <div class="col-xs-5 col-md-4">
+        {{customerObject.address_2}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-3 col-xs-offset-2 col-md-2 col-md-offset-3">
         <b>City</b>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-2">
         <b>State</b>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-2">
         <b>Zip</b>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-3 col-xs-offset-1 col-md-2 col-md-offset-2">
-        {{customerObject.address_1}}
-    </div>
-    <div class="col-xs-3 col-md-2">
-        {{customerObject.address_2}}
-    </div>
-    <div class="col-xs-3 col-md-2">
+
+    <div class="col-xs-3 col-xs-offset-2 col-md-2 col-md-offset-4">
         {{customerObject.city}}
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-2">
         {{customerObject.state}}
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-2">
         {{customerObject.zip}}
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-2 col-xs-offset-2">
+    <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
         <b>Phone #</b>
     </div>
     <div class="col-xs-4">
@@ -83,7 +88,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-2 col-xs-offset-2">
+    <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
         {{customerObject.phone}}
     </div>
     <div class="col-xs-4">
@@ -94,12 +99,12 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-md-offset-1">
         <h3>Vehicle Information</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-2 col-xs-offset-2">
+    <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
         <b>Year</b>
     </div>
     <div class="col-xs-2">
@@ -113,7 +118,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-2 col-xs-offset-2">
+    <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
         {{carObject.year}}
     </div>
     <div class="col-xs-2">
@@ -127,12 +132,12 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-md-offset-1">
         <h3>Cost Information</h3>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-1 text-right col-xs-offset-2">
+    <div class="col-xs-1 text-right col-xs-offset-1 col-md-offset-2">
         <b>MSRP</b>
     </div>
     <div class="col-xs-1 col-md-2">
