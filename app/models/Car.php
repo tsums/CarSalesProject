@@ -8,10 +8,18 @@
  */
 class Car extends Eloquent
 {
+    protected $hidden = ['created_at', 'updated_at'];
 
     public function sale()
     {
         return $this->hasOne('Sale');
+    }
+
+
+    public function customer()
+    {
+        $sale = $this->sale();
+        return $sale->getResults()->belongsTo('Customer');
     }
 
     public function services()

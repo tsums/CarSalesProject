@@ -2,6 +2,7 @@
 
 class Service extends Eloquent
 {
+    protected $hidden = ['created_at', 'updated_at'];
 
     protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 

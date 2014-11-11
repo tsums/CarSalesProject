@@ -26,6 +26,13 @@ class CarsController extends \BaseController
         return Response::json($car->sale);
     }
 
+    public function showCustomer($id)
+    {
+        $car = Car::find($id);
+        if (empty($car)) return Response::make("Car with id: $id not found", 404);
+        return Response::json($car->customer);
+    }
+
     public function showServices($id)
     {
         $car = Car::find($id);

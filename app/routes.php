@@ -28,6 +28,7 @@ Route::group(['prefix' => 'api'], function () {
     /* Cars */
     Route::get('cars/{id}/services', 'CarsController@showServices');
     Route::get('cars/{id}/sale', 'CarsController@showSale');
+    Route::get('cars/{id}/customer', 'CarsController@showCustomer');
     Route::get('cars/unsold', 'CarsController@indexNotYetSold');
     Route::resource('cars', 'CarsController');
 
