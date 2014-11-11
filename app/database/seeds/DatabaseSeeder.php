@@ -1,43 +1,45 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use Faker\Provider\en_US\Address;
-use Faker\Provider\en_US\PhoneNumber;
+use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder {
+class DatabaseSeeder extends Seeder
+{
 
-	/**
-	 * Run the database seeds.
-	 *
-	 * @return void
-	 */
-	public function run()
-	{
-		Eloquent::unguard();
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //TODO seeder is broken because foreign keys.
+        Eloquent::unguard();
 
         DB::table('sales')->delete();
-		$this->call('CustomerTableSeeder');
+        $this->call('CustomerTableSeeder');
         $this->call('CarsTableSeeder');
-	}
+    }
 
 }
 
-class CustomerTableSeeder extends Seeder {
+class CustomerTableSeeder extends Seeder
+{
 
-    public function run() {
+    public function run()
+    {
         DB::table('customers')->delete();
 
         $faker = Faker::create();
 
-
-        foreach(range(1,20) as $index) {
+        foreach (range(1, 20) as $index) {
 
             Customer::create([
                 'name_first' => $faker->firstName,
                 'name_last' => $faker->lastName,
                 'address_1' => $faker->buildingNumber . " " . $faker->streetName,
-                'address_2' => rand(0,10) <=2 ? Address::secondaryAddress() : "",
+                'address_2' => rand(0, 10) <= 2 ? Address::secondaryAddress() : "",
                 'city' => $faker->city,
                 'state' => Address::stateAbbr(),
                 'phone' => $this->phone(),
@@ -48,25 +50,25 @@ class CustomerTableSeeder extends Seeder {
         }
     }
 
-    protected function phone() {
+    // best I can do to make a definite US phone in the format we want to standardize on.
+    protected function phone()
+    {
         $phone = "";
-        foreach (range(0,2) as $index) {
-            $phone = $phone . Address::randomDigitNotNull();
-        }
-        $phone = $phone . '-';
-        foreach (range(0,2) as $index) {
-            $phone = $phone . Address::randomDigitNotNull();
-        }
-        $phone = $phone . '-';
-        foreach (range(0,3) as $index) {
-            $phone = $phone . Address::randomDigitNotNull();
+        foreach ([2,2,3] as $upper)
+        {
+            foreach (range(0, $upper) as $index) {
+                $phone = $phone . Address::randomDigitNotNull();
+            }
+            if ($upper == 2) $phone = $phone . '-';
         }
         return $phone;
     }
 
-    protected function zip() {
+    // only want 5 digit zips
+    protected function zip()
+    {
         $zip = "";
-        foreach(range(0,4) as $index) {
+        foreach (range(0, 4) as $index) {
             $zip = $zip . Address::randomDigitNotNull();
         }
         return $zip;
