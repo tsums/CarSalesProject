@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: trevor
- * Date: 11/8/14
- * Time: 4:36 PM
+ * Class Customer
+ *
+ * Customer model which contains identifying information about a specific customer.
  */
 class Customer extends Eloquent
 {
@@ -19,6 +18,6 @@ class Customer extends Eloquent
 
     public function cars()
     {
-        return $this->belongsToMany('Car', 'sales');
+        return $this->belongsToMany('Car', 'sales')->withPivot(['price']);
     }
 } 

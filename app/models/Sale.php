@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: trevor
- * Date: 11/8/14
- * Time: 9:24 PM
+ * Class Sale
+ *
+ * Sale is a weak model which represents a Car being sold to a Customer, along with properties for the relation.
  */
 class Sale extends Eloquent
 {

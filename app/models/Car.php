@@ -1,10 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: trevor
- * Date: 11/8/14
- * Time: 8:44 PM
+ * Class Car
+ *
+ * Car model which contains the identifying information about a specific car.
  */
 class Car extends Eloquent
 {

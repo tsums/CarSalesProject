@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class Service
+ *
+ * Service Model for a single service appointment which represents a single car being brought in for service.
+ */
 class Service extends Eloquent
 {
     protected $hidden = ['created_at', 'updated_at'];
