@@ -10,16 +10,28 @@ class Car extends Eloquent
 {
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function sale()
+    /* Scopes */
+
+    public function scopeUnsold($query)
     {
-        return $this->hasOne('Sale');
+        return $query->has('sale', '<', 1);
     }
 
+    public function scopeSold($query)
+    {
+        return $query->has('sale');
+    }
+
+    /* Related Entities */
 
     public function customer()
     {
-        $sale = $this->sale();
-        return $sale->getResults()->belongsTo('Customer');
+        return $this->belongsToMany('Customer', 'sales');
+    }
+
+    public function sale()
+    {
+        return $this->hasOne('Sale');
     }
 
     public function services()

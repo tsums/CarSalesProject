@@ -19,6 +19,6 @@ class Customer extends Eloquent
 
     public function cars()
     {
-        return $this->belongsToMany('Car', 'sales', 'customer_id', 'car_id')->withPivot('customer_id', 'car_id');
+        return $this->belongsToMany('Car', 'sales');
     }
 } 

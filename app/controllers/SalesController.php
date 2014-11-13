@@ -74,17 +74,9 @@ class SalesController extends \BaseController
 
         $array = Input::json()->all();
 
-        //TODO catch DB integrity exceptions.
-
         $sale = Sale::create($array);
 
         if ($sale) {
-
-            $car = $sale->car;
-
-            $car->sold = 1;
-            $car->save();
-
             return Response::json($sale);
         }
 
