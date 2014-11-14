@@ -26,7 +26,6 @@ class CarsTableSeeder extends Seeder {
                 'color' => $faker->colorName,
                 'msrp' => $cost * 1.15,
                 'cost' => $cost,
-                'sold' => false
 			]);
 		}
 	}

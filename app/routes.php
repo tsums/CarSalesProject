@@ -20,11 +20,6 @@ Route::group(['prefix' => 'api'], function () {
 
     //TODO except methods not supported in the controllers on resources.
 
-    /* Customers */
-    Route::get('/customers/{id}/sales', 'CustomerController@indexSales');
-    Route::get('/customers/{id}/cars', 'CustomerController@indexCars');
-    Route::resource('customers', 'CustomerController');
-
     /* Cars */
     Route::get('cars/{id}/services', 'CarsController@showServices');
     Route::get('cars/{id}/sale', 'CarsController@showSale');
@@ -32,6 +27,11 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('cars/unsold', 'CarsController@indexNotYetSold');
     Route::get('cars/sold', 'CarsController@indexSold');
     Route::resource('cars', 'CarsController');
+
+    /* Customers */
+    Route::get('/customers/{id}/sales', 'CustomerController@indexSales');
+    Route::get('/customers/{id}/cars', 'CustomerController@indexCars');
+    Route::resource('customers', 'CustomerController');
 
     /* Sales */
     Route::get('sales/{id}/car', 'SalesController@showCar');
@@ -43,4 +43,16 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/services/{id}/car', 'ServiceController@showCar');
     Route::resource('services', 'ServiceController');
 
+    /* Static Data and Definitions */
+    Route::group(['prefix' => 'static'], function () {
+
+        /* Service Types */
+        Route::get('service-types', function () {
+            return ServiceType::all();
+        });
+
+    });
+
 });
+
+

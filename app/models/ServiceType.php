@@ -11,6 +11,8 @@
  *
  * ServiceType defines the kinds of ServiceActions possible and their standard parameters.
  */
-class ServiceType {
+class ServiceType extends Eloquent {
+
+    public $timestamps = false;
 
 } 
