@@ -40,6 +40,7 @@ Route::group(['prefix' => 'api'], function () {
 
     /* Services */
     Route::get('/services/{id}/actions', 'ServiceController@ShowActions');
+    Route::post('/services/{id}/actions', 'ServiceController@addActions');
     Route::get('/services/{id}/car', 'ServiceController@showCar');
     Route::resource('services', 'ServiceController');
 

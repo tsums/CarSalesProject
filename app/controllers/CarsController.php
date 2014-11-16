@@ -75,7 +75,7 @@ class CarsController extends \BaseController
      */
     public function show($id)
     {
-        $car = Car::find($id);
+        $car = Car::with('customer', 'sale', 'services')->find($id);
         if (empty($car)) return Response::make("Car with id: $id not found", 404);
         return Response::json($car);
     }

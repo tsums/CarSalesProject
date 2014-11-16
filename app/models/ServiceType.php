@@ -15,4 +15,11 @@ class ServiceType extends Eloquent {
 
     public $timestamps = false;
 
+    public $hidden = ['pivot'];
+
+    public function services()
+    {
+        $this->belongsToMany('Service');
+    }
+
 } 

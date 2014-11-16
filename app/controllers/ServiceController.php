@@ -45,8 +45,6 @@ class ServiceController extends \BaseController
 
         $array = Input::json()->all();
 
-        //TODO catch DB integrity exceptions.
-
         $service = Service::create($array);
         if (!empty($service)) {
             return Response::json($service);
@@ -64,7 +62,7 @@ class ServiceController extends \BaseController
      */
     public function show($id)
     {
-        $service = Service::find($id);
+        $service = Service::with('service_types.type', 'car')->find($id);
         if (empty($service)) return Response::make("Service with id: $id not found", 404);
         return Response::json($service);
     }
@@ -98,6 +96,31 @@ class ServiceController extends \BaseController
     }
 
     /**
+     * Add actions to the given service instance.
+     * POST /services/{id}/actions
+     *
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addActions($id)
+    {
+        if (!Input::isJson()) return Response::make("Must Post JSON", 400);
+
+        $array = Input::json()->all();
+
+        $service = Service::find($id);
+        if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
+
+        foreach ($array as $type => $price) {
+            $service->actions()->attach($type, ['price' => $price]);
+        }
+
+        return Response::json($service);
+
+    }
+
+
+    /**
      * Show the form for editing the specified resource.
      * GET /services/{id}/edit
      *
@@ -118,7 +141,19 @@ class ServiceController extends \BaseController
      */
     public function update($id)
     {
-        //
+        if (!Input::isJson()) return Response::make("Must Post JSON", 400);
+
+        $array = Input::json()->all();
+
+        $service = Service::find($id);
+        if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
+
+        foreach ($array as $key => $val) {
+            $service->{$key} = $val;
+        }
+
+        $service->save();
+        return Response::json($service);
     }
 
     /**
