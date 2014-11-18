@@ -8,15 +8,15 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             controller: 'homeController'
 
         }).when('/sales',{
-            templateUrl:'views/sales.html',
+            templateUrl:'views/sales/sales.html',
             controller: 'salesController'
 
         }).when('/carsale',{
-            templateUrl:'views/carSale.html',
+            templateUrl:'views/sales/carSale.html',
             controller: 'carSaleController'
 
         }).when('/salereceipt',{
-            templateUrl:'views/saleReceipt.html',
+            templateUrl:'views/sales/saleReceipt.html',
             controller: 'salesReceiptController'
 
         }).otherwise({

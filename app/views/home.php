@@ -22,9 +22,9 @@
     <script src="js/selectConfig.js"></script>
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/controllers/homeCtrl.js"></script>
-    <script src="js/controllers/salesCtrl.js"></script>
-    <script src="js/controllers/carSaleCtrl.js"></script>
-    <script src="js/controllers/saleReceiptCtrl.js"></script>
+    <script src="js/controllers/sales/salesCtrl.js"></script>
+    <script src="js/controllers/sales/carSaleCtrl.js"></script>
+    <script src="js/controllers/sales/saleReceiptCtrl.js"></script>
     <script src="js/services/customerSaleService.js"></script>
 
 
