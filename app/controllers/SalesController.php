@@ -92,7 +92,7 @@ class SalesController extends \BaseController
      */
     public function show($id)
     {
-        $sale = Sale::find($id);
+        $sale = Sale::with(['car', 'customer'])->find($id);
         if (empty($sale)) return Response::make("Sale with id: $id not found", 404);
         return Response::json($sale);
     }

@@ -21,7 +21,7 @@ Route::group(['prefix' => 'api'], function () {
     //TODO except methods not supported in the controllers on resources.
 
     /* Cars */
-    Route::get('cars/{id}/services', 'CarsController@showServices');
+    Route::get('cars/{id}/appointments', 'CarsController@showAppointments');
     Route::get('cars/{id}/sale', 'CarsController@showSale');
     Route::get('cars/{id}/customer', 'CarsController@showCustomer');
     Route::get('cars/unsold', 'CarsController@indexNotYetSold');
@@ -38,11 +38,11 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('sales/{id}/customer', 'SalesController@showCustomer');
     Route::resource('sales', 'SalesController');
 
-    /* Services */
-    Route::get('/services/{id}/actions', 'ServiceController@ShowActions');
-    Route::post('/services/{id}/actions', 'ServiceController@addActions');
-    Route::get('/services/{id}/car', 'ServiceController@showCar');
-    Route::resource('services', 'ServiceController');
+    /* Appointments */
+    Route::get('/appointments/{id}/actions', 'AppointmentController@ShowActions');
+    Route::post('/appointments/{id}/actions', 'AppointmentController@addActions');
+    Route::get('/appointments/{id}/car', 'AppointmentController@showCar');
+    Route::resource('appointments', 'AppointmentController');
 
     /* Static Data and Definitions */
     Route::group(['prefix' => 'static'], function () {

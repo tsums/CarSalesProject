@@ -37,11 +37,11 @@ class CarsController extends \BaseController
         return Response::json($car->customer);
     }
 
-    public function showServices($id)
+    public function showAppointments($id)
     {
-        $car = Car::find($id);
+        $car = Car::with('appointments')->find($id);
         if (empty($car)) return Response::make("Car with id: $id not found", 404);
-        return Response::json($car->services);
+        return Response::json($car->appointments);
     }
 
     /**
@@ -75,7 +75,7 @@ class CarsController extends \BaseController
      */
     public function show($id)
     {
-        $car = Car::with('customer', 'sale', 'services')->find($id);
+        $car = Car::with('customer', 'sale', 'appointments')->find($id);
         if (empty($car)) return Response::make("Car with id: $id not found", 404);
         return Response::json($car);
     }
