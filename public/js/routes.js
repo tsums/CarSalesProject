@@ -19,6 +19,14 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             templateUrl:'views/sales/saleReceipt.html',
             controller: 'salesReceiptController'
 
+        }).when('/servicesched',{
+            templateUrl:'views/service/schedule.html',
+            controller: 'serviceController'
+
+        }).when('/serviceappt',{
+            templateUrl:'views/service/appointment.html',
+            controller: 'serviceController'
+
         }).otherwise({
             redirectTo:'/'
         });

@@ -25,6 +25,7 @@
     <script src="js/controllers/sales/salesCtrl.js"></script>
     <script src="js/controllers/sales/carSaleCtrl.js"></script>
     <script src="js/controllers/sales/saleReceiptCtrl.js"></script>
+    <script src="js/controllers/service/serviceCtrl.js"></script>
     <script src="js/services/customerSaleService.js"></script>
 
 
@@ -37,7 +38,8 @@
             </div>
             <ul class="nav navbar-nav">
                 <li ng-class="{active: salesPage}"><a href="#sales">Sales</a></li>
-                <li ng-class="{active: servicePage}"><a href="#service">Service</a></li>
+                <li ng-class="{active: serviceSchedulePage}"><a href="#servicesched">Service Schedule</a></li>
+                <li ng-class="{active: serviceAppointmentPage}"><a href="#serviceappt">Service Appointment</a></li>
                 <li ng-class="{active: statsPage}"><a href="#stats">Statistics</a></li>
             </ul>
         </div>
