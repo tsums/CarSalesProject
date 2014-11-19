@@ -33,9 +33,9 @@ class Car extends Eloquent
         return $this->hasOne('Sale');
     }
 
-    public function services()
+    public function appointments()
     {
-        return $this->hasMany('Service');
+        return $this->hasMany('Appointment');
     }
 
 } 

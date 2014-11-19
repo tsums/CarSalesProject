@@ -6,7 +6,7 @@
  * Service Model for a single service appointment which represents a single car being brought in for service.
  */
 //TODO rename maintenece.
-class Service extends Eloquent
+class Appointment extends Eloquent
 {
     protected $hidden = ['created_at', 'updated_at'];
 

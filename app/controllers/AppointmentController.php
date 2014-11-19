@@ -1,17 +1,17 @@
 <?php
 
-class ServiceController extends \BaseController
+class AppointmentController extends \BaseController
 {
 
     /**
      * Display a listing of the resource.
-     * GET /services
+     * GET /appointments
      *
      * @return Response
      */
     public function index()
     {
-        return Response::json(Service::all());
+        return Response::json(Appointment::all());
     }
 
     /**
@@ -45,7 +45,7 @@ class ServiceController extends \BaseController
 
         $array = Input::json()->all();
 
-        $service = Service::create($array);
+        $service = Appointment::create($array);
         if (!empty($service)) {
             return Response::json($service);
         }
@@ -55,49 +55,49 @@ class ServiceController extends \BaseController
 
     /**
      * Display the specified resource.
-     * GET /services/{id}
+     * GET /appointments/{id}
      *
      * @param  int $id
      * @return Response
      */
     public function show($id)
     {
-        $service = Service::with('service_types.type', 'car')->find($id);
+        $service = Appointment::with('service_types.type', 'car')->find($id);
         if (empty($service)) return Response::make("Service with id: $id not found", 404);
         return Response::json($service);
     }
 
     /**
      * Show the Car object referenced by given Service
-     * GET /services/{id}/car
+     * GET /appointments/{id}/car
      *
      * @param $id
      * @return Response
      */
     public function showCar($id)
     {
-        $service = Service::find($id);
+        $service = Appointment::find($id);
         if (empty($service)) return Response::make("Service with id: $id not found", 404);
         return Response::json($service->car);
     }
 
     /**
      * Show the actions taken during given Service
-     * GET /services/{id}/actions
+     * GET /appointments/{id}/actions
      *
      * @param $id
      * @return Response
      */
     public function ShowActions($id)
     {
-        $service = Service::find($id);
+        $service = Appointment::find($id);
         if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
         return Response::json($service->actions);
     }
 
     /**
      * Add actions to the given service instance.
-     * POST /services/{id}/actions
+     * POST /appointments/{id}/actions
      *
      * @param $id
      * @return \Illuminate\Http\JsonResponse
@@ -108,7 +108,7 @@ class ServiceController extends \BaseController
 
         $array = Input::json()->all();
 
-        $service = Service::find($id);
+        $service = Appointment::find($id);
         if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
 
         foreach ($array as $type => $price) {
@@ -134,7 +134,7 @@ class ServiceController extends \BaseController
 
     /**
      * Update the specified resource in storage.
-     * PUT /services/{id}
+     * PUT /appointments/{id}
      *
      * @param  int $id
      * @return Response
@@ -145,7 +145,7 @@ class ServiceController extends \BaseController
 
         $array = Input::json()->all();
 
-        $service = Service::find($id);
+        $service = Appointment::find($id);
         if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
 
         foreach ($array as $key => $val) {
@@ -158,7 +158,7 @@ class ServiceController extends \BaseController
 
     /**
      * Remove the specified resource from storage.
-     * DELETE /services/{id}
+     * DELETE /appointments/{id}
      *
      * @param  int $id
      * @return Response
