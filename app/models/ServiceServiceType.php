@@ -15,6 +15,7 @@ class ServiceServiceType extends Eloquent
 
     protected $hidden = ['service_id', 'service_type_id'];
 
+    /* Relationships */
     public function appointment()
     {
         return $this->belongsTo('Appointment');

@@ -7,7 +7,17 @@
  */
 class Car extends Eloquent
 {
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'customer', 'pivot'];
+
+    protected $appends = ['owner'];
+
+    /* Attributes */
+
+    // workaround for a one-one relationship using the pivot table 'sales'.
+    public function getOwnerAttribute()
+    {
+        return $this->customer->first();
+    }
 
     /* Scopes */
 
