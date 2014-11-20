@@ -13,4 +13,20 @@ angular.module('ServiceScheduleCtrl', []).controller('serviceScheduleController'
             console.log(data);
         });
 
+    $scope.isValidInput = function(){
+        return $scope.serviceAppointment.apptTime != undefined && $scope.serviceAppointment.timeTaken != undefined && typeof($scope.serviceAppointment.timeTaken) == "number" && $scope.serviceAppointment.timeTaken > 0 && $scope.serviceAppointment.timeTaken <= 9000;
+    };
+
+    $scope.submitting = false;
+    $scope.scheduleAppointment = function(){
+        $scope.submitting = true;
+        $http.post('/api/appointments',{car_id:$scope.serviceAppointment.car.id,scheduled:(new Date($scope.serviceAppointment.apptTime)).toISOString(),time_est:$scope.serviceAppointment.timeTaken}).
+            success(function(data) {
+                console.log(data);
+            }).
+            error(function(data) {
+                console.log(data);
+            });
+    }
+
 }]);
