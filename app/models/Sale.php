@@ -11,6 +11,7 @@ class Sale extends Eloquent
 
     protected $fillable = ['when', 'customer_id', 'car_id', 'price'];
 
+    /* Relationships */
     public function car()
     {
         return $this->belongsTo('Car');

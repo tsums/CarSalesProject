@@ -42,6 +42,7 @@ Route::group(['prefix' => 'api'], function () {
     Route::get('/appointments/{id}/actions', 'AppointmentController@ShowActions');
     Route::post('/appointments/{id}/actions', 'AppointmentController@addActions');
     Route::get('/appointments/{id}/car', 'AppointmentController@showCar');
+    Route::get('/appointments/pending', 'AppointmentController@indexPending');
     Route::resource('appointments', 'AppointmentController');
 
     /* Static Data and Definitions */

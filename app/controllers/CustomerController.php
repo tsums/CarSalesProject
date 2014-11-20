@@ -84,7 +84,7 @@ class CustomerController extends \BaseController
      */
     public function show($id)
     {
-        $customer = Customer::find($id);
+        $customer = Customer::with(['cars', 'sales'])->find($id);
         if (empty($customer)) return Response::make("Customer with id: $id not found", 404);
         return Response::json($customer);
     }

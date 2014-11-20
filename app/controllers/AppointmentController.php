@@ -11,7 +11,16 @@ class AppointmentController extends \BaseController
      */
     public function index()
     {
-        return Response::json(Appointment::all());
+        $query = Appointment::query();
+        if (!empty(Input::get('pending'))) {
+            echo(Input::get('pending'));
+            if (Input::get('pending') === "true") {
+                $query->where('departed', null);
+            }
+        }
+
+
+        return Response::json($query->get());
     }
 
     /**
@@ -35,7 +44,7 @@ class AppointmentController extends \BaseController
      */
     /**
      * Store a newly created resource in storage.
-     * POST /services
+     * POST /appointments
      *
      * @return Response
      */

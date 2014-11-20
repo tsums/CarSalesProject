@@ -12,6 +12,7 @@ class Appointment extends Eloquent
 
     protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 
+    /* Relationships */
     public function car()
     {
         return $this->belongsTo('Car');

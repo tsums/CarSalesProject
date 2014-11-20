@@ -17,6 +17,8 @@ class ServiceType extends Eloquent {
 
     public $hidden = ['pivot'];
 
+    /* Relationships */
+
     public function appointments()
     {
         $this->belongsToMany('Appointment');
