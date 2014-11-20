@@ -21,7 +21,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
         }).when('/servicesched',{
             templateUrl:'views/service/schedule.html',
-            controller: 'serviceController'
+            controller: 'serviceScheduleController'
 
         }).when('/serviceappt',{
             templateUrl:'views/service/appointment.html',

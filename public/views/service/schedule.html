@@ -1,0 +1,35 @@
+<form class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-5">
+            <label>Vehicle</label>
+        </div>
+        <div class="col-sm-2">
+            <label for="apptTime">Appointment Time</label>
+        </div>
+        <div class="col-sm-2">
+            <label for="timeTaken">Time Required</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <ui-select ng-model="serviceAppointment.car" theme="bootstrap">
+                <ui-select-match placeholder="Select or search for a car...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}} - {{$select.selected.VIN}}</ui-select-match>
+                <ui-select-choices repeat="item in cars | filter: $select.search">
+                    <div>{{item.year}} {{item.make}} {{item.model}} - {{item.VIN}}</div>
+                    <small>Customer Information</small>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-sm-2">
+            <input ng-disabled="!serviceAppointment.car.selected" id="apptTime" class="form-control" ng-model="serviceAppointment.apptTime"/>
+        </div>
+        <div class="col-sm-2">
+            <input ng-disabled="!serviceAppointment.car.selected" id="timeTaken" class="form-control" ng-model="serviceAppointment.timeTaken"/>
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-10">
+        <button ng-disabled="" ng-click="scheduleAppointment()" class="btn btn-success pull-right">Schedule</button>
+    </div>
+</div>

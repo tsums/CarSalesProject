@@ -18,4 +18,16 @@ angular.module('selectConfig',[]).config(['uiSelectConfig', function(uiSelectCon
             }, items);
             return items.out;
         };
+    }).filter('byCustomerCar', function(){
+    "use strict";
+        return function(vehicles, searchCorpus){
+            var items = {
+                searchString : searchCorpus,
+                out:[]
+            };
+            angular.forEach(vehicles, function(value){
+
+            });
+            return items.out;
+        }
     });
