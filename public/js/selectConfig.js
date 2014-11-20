@@ -26,8 +26,10 @@ angular.module('selectConfig',[]).config(['uiSelectConfig', function(uiSelectCon
                 out:[]
             };
             angular.forEach(vehicles, function(value){
-
-            });
+                if((value.owner.name_first.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || (value.owner.name_last.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || ((value.owner.name_first+' '+value.owner.name_last).toLowerCase().indexOf(this.searchString.toLowerCase()) > -1) || ((value.owner.name_last+', '+value.owner.name_first).toLowerCase().indexOf(this.searchString.toLowerCase()) > -1)|| value.VIN.indexOf(this.searchString.toLowerCase()) > -1){
+                    this.out.push(value);
+                }
+            }, items);
             return items.out;
         }
     });

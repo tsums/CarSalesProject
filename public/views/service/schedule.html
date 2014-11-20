@@ -16,15 +16,15 @@
                 <ui-select-match placeholder="Select or search for a car...">{{$select.selected.year}} {{$select.selected.make}} {{$select.selected.model}} - {{$select.selected.VIN}}</ui-select-match>
                 <ui-select-choices repeat="item in cars | filter: $select.search">
                     <div>{{item.year}} {{item.make}} {{item.model}} - {{item.VIN}}</div>
-                    <small>Customer Information</small>
+                    <small>{{item.owner.name_last}}, {{item.owner.name_first}}</small>
                 </ui-select-choices>
             </ui-select>
         </div>
         <div class="col-sm-2">
-            <input ng-disabled="!serviceAppointment.car.selected" id="apptTime" class="form-control" ng-model="serviceAppointment.apptTime"/>
+            <input ng-disabled="!serviceAppointment.car" id="apptTime" class="form-control" ng-model="serviceAppointment.apptTime"/>
         </div>
         <div class="col-sm-2">
-            <input ng-disabled="!serviceAppointment.car.selected" id="timeTaken" class="form-control" ng-model="serviceAppointment.timeTaken"/>
+            <input ng-disabled="!serviceAppointment.car" id="timeTaken" class="form-control" ng-model="serviceAppointment.timeTaken"/>
         </div>
     </div>
 </form>
