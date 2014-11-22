@@ -12,6 +12,7 @@ class Appointment extends Eloquent
 
     protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 
+
     /* Relationships */
     public function car()
     {
@@ -25,7 +26,7 @@ class Appointment extends Eloquent
 
     public function service_types()
     {
-        return $this->hasMany('ServiceServiceType');
+        return $this->hasMany('AppointmentServiceType');
     }
 
 }

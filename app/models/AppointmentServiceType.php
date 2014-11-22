@@ -6,12 +6,12 @@
  * Date: 11/15/14
  * Time: 9:37 PM
  */
-class ServiceServiceType extends Eloquent
+class AppointmentServiceType extends Eloquent
 {
 
     public $timestamps = false;
 
-    protected $table = 'service_service_type';
+    protected $table = 'appointment_service_type';
 
     protected $hidden = ['service_id', 'service_type_id'];
 

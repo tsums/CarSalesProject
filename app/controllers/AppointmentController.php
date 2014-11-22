@@ -19,7 +19,6 @@ class AppointmentController extends \BaseController
             }
         }
 
-
         return Response::json($query->get());
     }
 
