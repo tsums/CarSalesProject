@@ -13,7 +13,7 @@ class AppointmentServiceType extends Eloquent
 
     protected $table = 'appointment_service_type';
 
-    protected $hidden = ['service_id', 'service_type_id'];
+    protected $hidden = ['service_id', 'service_type_id', 'appointment_id'];
 
     /* Relationships */
     public function appointment()

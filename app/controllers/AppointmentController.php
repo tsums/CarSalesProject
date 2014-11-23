@@ -98,9 +98,9 @@ class AppointmentController extends \BaseController
      */
     public function ShowActions($id)
     {
-        $service = Appointment::find($id);
+        $service = Appointment::with('service_types.type')->find($id);
         if (empty($service)) return Response::json(["error" => "Service with id: $id not found"], 404);
-        return Response::json($service->actions);
+        return Response::json($service->service_types);
     }
 
     /**
