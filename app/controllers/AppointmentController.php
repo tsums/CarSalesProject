@@ -21,7 +21,7 @@ class AppointmentController extends \BaseController
             }
         }
 
-        return Response::json($query->get());
+        return Response::json($query->with('car')->get());
     }
 
     /**
