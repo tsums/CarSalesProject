@@ -21,7 +21,7 @@ class AppointmentController extends \BaseController
             }
         }
 
-        return Response::json($query->with('car')->get());
+        return Response::json($query->get());
     }
 
     /**
@@ -72,7 +72,7 @@ class AppointmentController extends \BaseController
      */
     public function show($id)
     {
-        $service = Appointment::with('service_types.type', 'car')->find($id);
+        $service = Appointment::find($id);
         if (empty($service)) return Response::make("Service with id: $id not found", 404);
         return Response::json($service);
     }
