@@ -93,10 +93,6 @@ Route::group(['prefix' => 'api'], function () {
      */
     Route::get('/appointments/{id}/car', 'AppointmentController@showCar');
     /**
-     * GET list of appointments without departure time.
-     */
-    Route::get('/appointments/pending', 'AppointmentController@indexPending');
-    /**
      * GET list of appointments
      * POST make new appointment {"car_id" : id, "scheduled" : DateTime, "time_est": int}
      * PUT update appointment with new info. {"arrived" : DateTime, "departed" : DateTime}

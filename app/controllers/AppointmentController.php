@@ -7,13 +7,15 @@ class AppointmentController extends \BaseController
      * Display a listing of the resource.
      * GET /appointments
      *
+     * PARAMS:
+     *      pending     true|false  filter only appointments with no departure time.
+     *
      * @return Response
      */
     public function index()
     {
         $query = Appointment::query();
         if (!empty(Input::get('pending'))) {
-            echo(Input::get('pending'));
             if (Input::get('pending') === "true") {
                 $query->where('departed', null);
             }
