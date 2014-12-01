@@ -12,7 +12,7 @@ class Appointment extends Eloquent
 
     protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 
-    protected $appends = ['total_cost'];
+    protected $appends = ['total_cost', 'status'];
 
     protected $with = ['service_types.type', 'car'];
 
@@ -25,6 +25,17 @@ class Appointment extends Eloquent
             $total += $service->price;
         }
         return $total;
+    }
+
+    public function getStatusAttribute()
+    {
+        if (empty($this->arrived)) {
+            return "scheduled";
+        }
+        if (empty($this->departed)) {
+            return "in_progress";
+        }
+        return "completed";
     }
 
     /* Relationships */
