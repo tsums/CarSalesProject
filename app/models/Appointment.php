@@ -21,8 +21,10 @@ class Appointment extends Eloquent
     public function getTotalCostAttribute()
     {
         $total = 0.0;
-        foreach ($this->service_types as $service) {
-            $total += $service->price;
+        if (!empty($this->service_types)) {
+            foreach ($this->service_types as $service) {
+                $total += $service->price;
+            }
         }
         return $total;
     }
