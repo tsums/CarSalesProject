@@ -18,11 +18,14 @@ angular.module('ServiceScheduleCtrl', []).controller('serviceScheduleController'
     };
 
     $scope.submitting = false;
+
     $scope.scheduleAppointment = function(){
-        $scope.submitting = true;
+
         $http.post('/api/appointments',{car_id:$scope.serviceAppointment.car.id,scheduled:(new Date($scope.serviceAppointment.apptTime)).toISOString(),time_est:$scope.serviceAppointment.timeTaken}).
             success(function(data) {
+                $scope.serviceAppointment = {};
                 console.log(data);
+                $scope.submitting = false;
             }).
             error(function(data) {
                 console.log(data);

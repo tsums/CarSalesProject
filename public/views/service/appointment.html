@@ -1,0 +1,50 @@
+<form class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-5">
+            <label>Appointment</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
+            <ui-select ng-model="appointment.selected" theme="bootstrap">
+                <ui-select-match placeholder="Select or search for a car...">{{$select.selected.car.year}} {{$select.selected.car.make}} {{$select.selected.car.model}} - {{$select.selected.car.VIN}}</ui-select-match>
+                <ui-select-choices repeat="item in appointments | filter: $select.search">
+                    <div>{{item.car.year}} {{item.car.make}} {{item.car.model}} - {{item.car.VIN}}</div>
+                    <small>{{item.car.owner.name_last}}, {{item.car.owner.name_first}}</small>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-sm-3">
+            <button ng-disabled="submitting||!isValidInput()" ng-click="findAppointment()" class="btn btn-success pull-right">Look Up</button>
+        </div>
+    </div>
+</form>
+
+<div ng-hide="!appointment.fetched || appointment.fetched.arrived" class="row">
+    <div class="col-sm-3">
+        <label>Check In</label>
+    </div>
+    <div class="col-sm-3">
+        <input ng-model="appointment.arrived" type="time"/>
+    </div>
+    <div class="col-sm-3">
+        <button ng-disabled="submitting||!isValidCheckIn()" ng-click="checkIn()" class="btn btn-success pull-right">Punch</button>
+    </div>
+</div>
+
+<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed" class="row">
+    <div class="col-sm-3">
+        <label>Check Out</label>
+    </div>
+    <div class="col-sm-3">
+        <input ng-model="appointment.departed" type="time"/>
+    </div>
+    <div class="col-sm-3">
+        <button ng-disabled="submitting||!isValidCheckOut()" ng-click="checkOut()" class="btn btn-success pull-right">Punch Out</button>
+    </div>
+</div>
+
+<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || !appointment.fetched.departed" class="row">
+
+</div>
+
