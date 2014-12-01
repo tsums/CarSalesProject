@@ -26,7 +26,7 @@ class CarsTableSeeder extends Seeder {
                 'VIN' => substr(strtoupper($faker->md5),16),
                 'make' => $car['make'],
                 'model' => $car['model'],
-                'year' => $faker->year,
+                'year' => rand(2005, 2015),
                 'color' => $faker->colorName,
                 'msrp' => $cost * 1.15,
                 'cost' => $cost,
