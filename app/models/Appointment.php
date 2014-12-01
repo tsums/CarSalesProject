@@ -12,20 +12,20 @@ class Appointment extends Eloquent
 
     protected $fillable = ['car_id', 'scheduled', 'arrived', 'departed', 'time_est'];
 
-//    protected $appends = ['total_cost'];
+    protected $appends = ['total_cost'];
+
+    protected $with = ['service_types.type', 'car'];
 
     /* Attributes */
 
-//    public function getTotalCostAttribute()
-//    {
-//        $total = 0.0;
-//        if (!empty($this->service_types)) {
-//            foreach ($this->service_types as $service) {
-//                $total += $service->price;
-//            }
-//        }
-//        return $total;
-//    }
+    public function getTotalCostAttribute()
+    {
+        $total = 0.0;
+        foreach ($this->service_types as $service) {
+            $total += $service->price;
+        }
+        return $total;
+    }
 
     /* Relationships */
     public function car()
