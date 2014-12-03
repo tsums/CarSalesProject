@@ -32,16 +32,43 @@
     </div>
 </div>
 
-<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed" class="row">
-    <div class="col-sm-3">
-        <label>Check Out</label>
+<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed">
+    <div ng-repeat="item in servicesPerformed" class="row">
+        <div class="col-sm-3">
+            <label>Service Item #{{$index+1}}</label>
+        </div>
+        <div class="col-sm-3">
+            <ui-select ng-model="item.selected" theme="bootstrap">
+                <ui-select-match placeholder="Select or search for a car...">{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices repeat="servType in serviceTypes">
+                    <div>{{servType.id}} - {{servType.name}}</div>
+                    <small>{{servType.description}}, {{servType.suggested_price}}</small>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="col-sm-3">
+            <input ng-model="item.selected.suggested_price"/>
+        </div>
+        <div ng-if="$last" class="col-sm-3">
+            <button ng-click="addServiceType()" class="btn btn-success">+ Add</button>
+        </div>
     </div>
-    <div class="col-sm-3">
-        <input ng-model="appointment.departed" type="time"/>
+    <div class="row">
+        <button ng-click="postServiceTypes()">Post</button>
     </div>
-    <div class="col-sm-3">
-        <button ng-disabled="submitting||!isValidCheckOut()" ng-click="checkOut()" class="btn btn-success pull-right">Punch Out</button>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Check Out</label>
+        </div>
+        <div class="col-sm-3">
+            <input ng-model="appointment.departed" type="time"/>
+        </div>
+        <div class="col-sm-3">
+            <button ng-disabled="submitting||!isValidCheckOut()" ng-click="checkOut()" class="btn btn-success pull-right">Punch Out</button>
+        </div>
     </div>
+
 </div>
 
 <div ng-hide="!appointment.fetched || !appointment.fetched.arrived || !appointment.fetched.departed" class="row">
