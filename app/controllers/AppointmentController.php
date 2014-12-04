@@ -124,7 +124,7 @@ class AppointmentController extends \BaseController
         foreach ($array as $type => $price) {
             $service->actions()->attach($type, ['price' => $price]);
         }
-
+        $service = Appointment::find($id);
         return Response::json($service);
 
     }
