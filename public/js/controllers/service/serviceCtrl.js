@@ -76,7 +76,9 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
         $scope.postServiceTypes = {};
         console.log($scope.appointment);
         angular.forEach($scope.servicesPerformed, function(value, key){
-            $scope.postServiceTypes[value.selected.id] = value.selected.suggested_price;
+            if(value.selected){
+                $scope.postServiceTypes[value.selected.id] = value.selected.suggested_price;
+            }
         });
         $http.post('/api/appointments/'+$scope.appointment.fetched.id+"/actions",$scope.postServiceTypes).
             success(function(data){
@@ -103,6 +105,10 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
             error(function(data) {
                 console.log(data);
             });
+    }
+    $scope.toMyTimeString = function(dateTimeString){
+        var d = new Date(dateTimeString);
+        return d.toLocaleTimeString();
     }
 
 }]);
