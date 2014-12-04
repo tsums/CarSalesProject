@@ -6,6 +6,8 @@ angular.module('StatCtrl', []).controller('statisticController',['$location','$s
     $scope.startDate = "" ;
     $scope.endDate= "" ;
     $scope.statData={count:0,profit:[]};
+    $scope.sortOrder = "profit";
+    $scope.reverse = true;
 
     $scope.validateAndSubmit = function(){
         if($scope.endDate > $scope.startDate){

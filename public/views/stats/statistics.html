@@ -20,19 +20,19 @@
 <div class="stats" ng-if="statData.profits.length>0">
     <div class="row">
         <div class="col-sm-offset-2 col-sm-2">
-            <b>Year</b>
+            <b ng-click="sortOrder='year'; reverse=!reverse">Year</b>
         </div>
         <div class="col-sm-2">
-            <b>Make</b>
+            <b ng-click="sortOrder='make'; reverse=!reverse">Make</b>
         </div>
         <div class="col-sm-2">
-            <b>Model</b>
+            <b ng-click="sortOrder='model'; reverse=!reverse">Model</b>
         </div>
         <div class="col-sm-2">
-            <b>Profit</b>
+            <b ng-click="sortOrder='profit'; reverse=!reverse">Profit</b>
         </div>
     </div>
-    <div class="row" ng-repeat="stat in statData.profits">
+    <div class="row" ng-repeat="stat in statData.profits | orderBy: sortOrder : reverse">
         <div class="col-sm-offset-2 col-sm-2">
             {{stat.year}}
         </div>
