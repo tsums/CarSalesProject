@@ -27,6 +27,10 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             templateUrl:'views/service/appointment.html',
             controller: 'serviceController'
 
+        }).when('/statistics', {
+            templateUrl:'views/stats/statistics.html',
+            controller: 'statisticsController'
+
         }).otherwise({
             redirectTo:'/'
         });

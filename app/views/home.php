@@ -27,6 +27,7 @@
     <script src="js/controllers/sales/saleReceiptCtrl.js"></script>
     <script src="js/controllers/service/serviceCtrl.js"></script>
     <script src="js/controllers/service/serviceScheduleCtrl.js"></script>
+    <script src="js/controllers/stats/statCtrl.js"></script>
     <script src="js/services/customerSaleService.js"></script>
 
 

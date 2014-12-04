@@ -39,7 +39,7 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
     };
 
     $scope.checkIn = function(){
-
+        console.log($scope.appointment.arrived);
         $http.put('/api/appointments/'+$scope.appointment.fetched.id,{arrived:$scope.appointment.arrived}).
             success(function(data) {
                 $scope.appointment.fetched = data;
@@ -105,7 +105,7 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
             error(function(data) {
                 console.log(data);
             });
-    }
+    };
     $scope.toMyTimeString = function(dateTimeString){
         var d = new Date(dateTimeString);
         return d.toLocaleTimeString();
