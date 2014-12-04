@@ -1,1 +1,49 @@
-<h1>Statistics</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <label for="startDate">Start Date</label>
+    </div>
+    <div class="col-sm-4">
+        <label for="endDate">End Date</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <input id="startDate" ng-model="startDate" type="date">
+    </div>
+    <div class="col-sm-4">
+        <input id="endDate" ng-model="endDate" type="date">
+    </div>
+    <div class="col-sm-4">
+        <button ng-click="validateAndSubmit()" class="btn btn-success">Look Up Stats</button>
+    </div>
+</div>
+<div class="stats" ng-if="statData.profits.length>0">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-2">
+            <b>Year</b>
+        </div>
+        <div class="col-sm-2">
+            <b>Make</b>
+        </div>
+        <div class="col-sm-2">
+            <b>Model</b>
+        </div>
+        <div class="col-sm-2">
+            <b>Profit</b>
+        </div>
+    </div>
+    <div class="row" ng-repeat="stat in statData.profits">
+        <div class="col-sm-offset-2 col-sm-2">
+            {{stat.year}}
+        </div>
+        <div class="col-sm-2">
+            {{stat.make}}
+        </div>
+        <div class="col-sm-2">
+            {{stat.model}}
+        </div>
+        <div class="col-sm-2">
+            ${{stat.profit}}
+        </div>
+    </div>
+</div>

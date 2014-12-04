@@ -42,7 +42,7 @@
                 <li ng-class="{active: salesPage}"><a href="#sales">Sales</a></li>
                 <li ng-class="{active: serviceSchedulePage}"><a href="#servicesched">Service Schedule</a></li>
                 <li ng-class="{active: serviceAppointmentPage}"><a href="#serviceappt">Service Appointment</a></li>
-                <li ng-class="{active: statsPage}"><a href="#stats">Statistics</a></li>
+                <li ng-class="{active: statsPage}"><a href="#statistics">Statistics</a></li>
             </ul>
         </div>
     </nav>

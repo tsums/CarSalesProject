@@ -29,7 +29,7 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
         }).when('/statistics', {
             templateUrl:'views/stats/statistics.html',
-            controller: 'statisticsController'
+            controller: 'statisticController'
 
         }).otherwise({
             redirectTo:'/'

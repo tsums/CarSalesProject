@@ -29,6 +29,7 @@ class StatisticsController extends \BaseController
             foreach ($makes as $make => $models) {
                 foreach ($models as $model => $profit) {
                     $responseArr[] = [
+                        'year' => $year,
                         'make' => $make,
                         'model' => $model,
                         'profit' => $profit
