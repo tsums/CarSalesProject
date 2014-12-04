@@ -23,7 +23,21 @@ class StatisticsController extends \BaseController
             $profitsByCar[$sale->car->year][$sale->car->make][$sale->car->model] += $profit;
         }
 
-        return Response::JSON(['count' => count($sales), 'profits' => $profitsByCar]);
+        $responseArr = [];
+
+        foreach ($profitsByCar as $year => $makes) {
+            foreach ($makes as $make => $models) {
+                foreach ($models as $model => $profit) {
+                    $responseArr[] = [
+                        'make' => $make,
+                        'model' => $model,
+                        'profit' => $profit
+                    ];
+                }
+            }
+        }
+
+        return Response::JSON(['count' => count($sales), 'profits' => $responseArr]);
     }
 
 
