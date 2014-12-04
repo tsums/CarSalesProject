@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed">
+<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed || appointment.fetched.service_types.length > 0">
     <div ng-repeat="item in servicesPerformed" class="row">
         <div class="col-sm-3">
             <label>Service Item #{{$index+1}}</label>
@@ -54,9 +54,12 @@
         </div>
     </div>
     <div class="row">
-        <button ng-click="postServiceTypes()">Post</button>
+        <button ng-click="postServiceTypes()" class="btn btn-success">Post Services</button>
     </div>
 
+</div>
+
+<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || appointment.fetched.departed || appointment.fetched.service_types.length <= 0">
     <div class="row">
         <div class="col-sm-3">
             <label>Check Out</label>
@@ -68,10 +71,197 @@
             <button ng-disabled="submitting||!isValidCheckOut()" ng-click="checkOut()" class="btn btn-success pull-right">Punch Out</button>
         </div>
     </div>
-
 </div>
 
-<div ng-hide="!appointment.fetched || !appointment.fetched.arrived || !appointment.fetched.departed" class="row">
 
+<div ng-if="appointment.fetched && appointment.fetched.arrived && appointment.fetched.departed && appointment.fetched.service_types.length > 0 ">
+    <link rel="stylesheet" href="../../css/print.css">
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-1">
+            <h2>Point of Sale Receipt</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1 col-xs-offset-1 col-md-2 col-md-offset-2">
+            <b>Service ID</b>
+        </div>
+        <div class="col-xs-3 col-md-2">
+            <b>Customer Name</b>
+        </div>
+        <div class="col-xs-3 col-md-2">
+            <b>Customer Number</b>
+        </div>
+        <div class="col-xs-1 col-md-2">
+            <b>VIN</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1 col-xs-offset-1 col-md-2 col-md-offset-2">
+            {{appointment.fetched.id}}
+        </div>
+        <div class="col-xs-3 col-md-2">
+            {{appointment.fetched.car.owner.name_last}}, {{appointment.fetched.car.owner.name_first}}
+        </div>
+        <div class="col-xs-3 col-md-2">
+            {{appointment.fetched.car.owner.id}}
+        </div>
+        <div class="col-xs-1 col-md-2">
+            {{appointment.fetched.car.VIN}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-1">
+            <h3>Customer Information</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1 col-md-4 col-md-offset-2">
+            <b>Address 1</b>
+        </div>
+        <div class="col-xs-5 col-md-4">
+            <b>Address 2</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-1 col-md-4 col-md-offset-2">
+            {{appointment.fetched.car.owner.address_1}}
+        </div>
+        <div class="col-xs-5 col-md-4">
+            {{appointment.fetched.car.owner.address_2}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-2 col-md-2 col-md-offset-3">
+            <b>City</b>
+        </div>
+        <div class="col-xs-2">
+            <b>State</b>
+        </div>
+        <div class="col-xs-2">
+            <b>Zip</b>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-3 col-xs-offset-2 col-md-2 col-md-offset-3">
+            {{appointment.fetched.car.owner.city}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.owner.state}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.owner.zip}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
+            <b>Phone #</b>
+        </div>
+        <div class="col-xs-4">
+            <b>Email</b>
+        </div>
+        <div class="col-xs-2">
+            <b>DOB</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
+            {{appointment.fetched.car.owner.phone}}
+        </div>
+        <div class="col-xs-4">
+            {{appointment.fetched.car.owner.email}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.owner.birthDate}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-1">
+            <h3>Vehicle Information</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
+            <b>Year</b>
+        </div>
+        <div class="col-xs-2">
+            <b>Make</b>
+        </div>
+        <div class="col-xs-2">
+            <b>Model</b>
+        </div>
+        <div class="col-xs-2">
+            <b>Color</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2 col-xs-offset-1 col-md-offset-2">
+            {{appointment.fetched.car.year}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.make}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.model}}
+        </div>
+        <div class="col-xs-2">
+            {{appointment.fetched.car.color}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-1">
+            <h3>Appointment Information</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-1 col-md-offset-2">
+            <b>Scheduled Time</b>
+        </div>
+        <div class="col-xs-3">
+            <b>Time Arrived</b>
+        </div>
+        <div class="col-xs-3">
+            <b>Time Departed</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 col-xs-offset-1 col-md-offset-2">
+            {{appointment.fetched.scheduled}}
+        </div>
+        <div class="col-xs-3">
+            {{appointment.fetched.arrived}}
+        </div>
+        <div class="col-xs-3">
+            {{appointment.fetched.departed}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 col-md-offset-1">
+            <h3>Cost Information</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1 col-md-offset-2">
+            <b>Service Item</b>
+        </div>
+        <div class="col-xs-4">
+            <b>Price</b>
+        </div>
+    </div>
+    <div class="row" ng-repeat="item in appointment.fetched.service_types">
+        <div class="col-xs-4 col-xs-offset-1 col-md-offset-2">
+            {{item.type.name}}
+        </div>
+        <div class="col-xs-4">
+            ${{item.price}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1 col-md-offset-2">
+            <b>Total Cost</b>
+        </div>
+        <div class="col-xs-4">
+            <b>${{appointment.fetched.total_cost}}</b>
+        </div>
+    </div>
 </div>
-

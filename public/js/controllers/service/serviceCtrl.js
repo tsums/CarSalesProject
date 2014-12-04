@@ -81,7 +81,7 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
         $http.post('/api/appointments/'+$scope.appointment.fetched.id+"/actions",$scope.postServiceTypes).
             success(function(data){
                 console.log("posted service types");
-                console.log(data);
+                $scope.appointment.fetched = data;
             }).
             error(function(data){
                 console.log(data);
