@@ -106,5 +106,9 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
                 console.log(data);
             });
     }
+    $scope.toMyTimeString = function(dateTimeString){
+        var d = new Date(dateTimeString);
+        return d.toLocaleTimeString();
+    }
 
 }]);
