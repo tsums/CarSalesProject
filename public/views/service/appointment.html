@@ -226,7 +226,7 @@
     </div>
     <div class="row">
         <div class="col-xs-3 col-xs-offset-1 col-md-offset-2">
-            {{appointment.fetched.scheduled}}
+            {{appointment.fetched.scheduled.toDateString()}}
         </div>
         <div class="col-xs-3">
             {{toMyTimeString(appointment.fetched.arrived)}}
