@@ -39,7 +39,7 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
     };
 
     $scope.checkIn = function(){
-        console.log($scope.appointment.arrived);
+        console.log("arrived"+$scope.appointment.arrived);
         $http.put('/api/appointments/'+$scope.appointment.fetched.id,{arrived:$scope.appointment.arrived}).
             success(function(data) {
                 $scope.appointment.fetched = data;
@@ -95,7 +95,7 @@ angular.module('ServiceCtrl', []).controller('serviceController',['$location','$
     };
 
     $scope.checkOut = function(){
-
+        console.log("departed"+$scope.appointment.departed);
         $http.put('/api/appointments/'+$scope.appointment.fetched.id,{departed:$scope.appointment.departed}).
             success(function(data) {
                 $scope.appointment.fetched = data;
