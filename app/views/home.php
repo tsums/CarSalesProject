@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Jimmy Bob's Car-a-Palooza</title>
+    <title>&lt;Business Name&gt;</title>
     <link rel="icon" type="image/x-icon" href="assets/car.ico">
     <!-- CSS -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"> <!-- load bootstrap via cdn -->
