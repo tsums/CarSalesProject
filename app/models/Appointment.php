@@ -40,6 +40,27 @@ class Appointment extends Eloquent
         return "completed";
     }
 
+    public function getArrivedAttribute()
+    {
+        if (@$this->attributes['arrived'] != null)
+            return date('c', strtotime($this->attributes['arrived']));
+        return null;
+    }
+
+    public function getDepartedAttribute()
+    {
+        if (@$this->attributes['departed'] != null)
+            return date('c', strtotime($this->attributes['departed']));
+        return null;
+    }
+
+    public function getScheduledAttribute()
+    {
+        if (@$this->attributes['scheduled'] != null)
+            return date('c', strtotime($this->attributes['scheduled']));
+        return null;
+    }
+
     /* Relationships */
     public function car()
     {
