@@ -9,6 +9,10 @@ angular.module('StatCtrl', []).controller('statisticController',['$location','$s
     $scope.sortOrder = "profit";
     $scope.reverse = true;
 
+    $scope.isValidDate = function(){
+        return ($scope.endDate > $scope.startDate) && $scope.endDate && $scope.startDate;
+    };
+
     $scope.validateAndSubmit = function(){
         if($scope.endDate > $scope.startDate){
             $http.get("/api/statistics",{params:{startDate:$scope.startDate.toISOString(), endDate:$scope.endDate.toISOString()}}).

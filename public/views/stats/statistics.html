@@ -14,7 +14,7 @@
         <input id="endDate" ng-model="endDate" type="date">
     </div>
     <div class="col-sm-4">
-        <button ng-click="validateAndSubmit()" class="btn btn-success">Look Up Stats</button>
+        <button ng-disabled="!isValidDate()" ng-click="validateAndSubmit()" class="btn btn-success">Look Up Stats</button>
     </div>
 </div>
 <div class="stats" ng-if="statData.profits.length>0">
