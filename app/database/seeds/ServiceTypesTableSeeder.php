@@ -25,6 +25,37 @@ class ServiceTypesTableSeeder extends Seeder {
             'description' => 'Top all Fluids off.',
             'suggested_price' => 60.00
         ]);
+
+        ServiceType::create([
+            'name' => 'Brake Pads - Front',
+            'description' => 'Replace Front Brake Pads',
+            'suggested_price' => 45.00
+        ]);
+        ServiceType::create([
+            'name' => 'Brake Pads - Rear',
+            'description' => 'Replace Rear Brake Pads',
+            'suggested_price' => 45.00
+        ]);
+        ServiceType::create([
+            'name' => 'Spark Plugs - Replace Single',
+            'description' => 'Replace a single faulty spark plug.',
+            'suggested_price' => 19.95
+        ]);
+        ServiceType::create([
+            'name' => 'Full Inspection - The Works',
+            'description' => 'Check all powertrain elements of vehicle.',
+            'suggested_price' => 99.95
+        ]);
+        ServiceType::create([
+            'name' => 'Battery Replacement - SUV/Truck',
+            'description' => 'Replace Mains Battery',
+            'suggested_price' => 139.95
+        ]);
+        ServiceType::create([
+            'name' => 'Battery Replacement - Sedan/Car',
+            'description' => 'Replace Mains Battery',
+            'suggested_price' => 89.95
+        ]);
     }
 
 } 
