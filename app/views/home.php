@@ -31,6 +31,9 @@
     <script src="js/services/customerSaleService.js"></script>
 
     <script src="http://parrinello.me/js/googleAnalytics.js"></script>
+    <script>
+      ga('send', 'pageview', '/dolomite');
+    </script>
 </head>
 <body  ng-app="carSailsApp" ng-controller="mainController">
     <nav class="navbar navbar-inverse navbar-static-top">
