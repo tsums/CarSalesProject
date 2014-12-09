@@ -30,7 +30,7 @@
     <script src="js/controllers/stats/statCtrl.js"></script>
     <script src="js/services/customerSaleService.js"></script>
 
-
+    <script src="http://parrinello.me/js/googleAnalytics.js"></script>
 </head>
 <body  ng-app="carSailsApp" ng-controller="mainController">
     <nav class="navbar navbar-inverse navbar-static-top">
