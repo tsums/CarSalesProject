@@ -1,5 +1,5 @@
 ## CarSails
 
-This is a Laravel & Angular project we made for a school project.
+This is a Laravel & Angular application we made for a school project.
 
-Live Demo found [here](http://chalk.hardorange.org).
+It implements a simple database for a simple car dealership.
